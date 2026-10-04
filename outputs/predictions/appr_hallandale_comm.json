@@ -1,0 +1,53 @@
+{
+  "doc_id": "appr_hallandale_comm",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "property_address": "605 N Dixie Hwy, Hallandale Beach, FL 33009",
+    "property_type": "industrial",
+    "as_is_market_value": 656000.0,
+    "effective_date": "2013-10-16",
+    "appraiser_firm": "L. B. Slater and Company, Inc.",
+    "building_area_sq_ft": 5250.0,
+    "units_or_beds": null,
+    "cap_rate_percent": 7.5,
+    "net_operating_income": 49484.0,
+    "evidence": [
+      {
+        "field": "property_address",
+        "quote": "605 N Dixie Hwy\nHallandale Beach, FL 33009"
+      },
+      {
+        "field": "property_type",
+        "quote": "reports capitalization rates of 6.88% for industrial buildings in Broward"
+      },
+      {
+        "field": "as_is_market_value",
+        "quote": "Six Hundred Fifty Six Thousand Dollars or $ 656,000"
+      },
+      {
+        "field": "effective_date",
+        "quote": "October 16, 2013"
+      },
+      {
+        "field": "appraiser_firm",
+        "quote": "L. B. Slater and Company, Inc."
+      },
+      {
+        "field": "building_area_sq_ft",
+        "quote": "Approximately 5,250+/- SF (adjusted)"
+      },
+      {
+        "field": "cap_rate_percent",
+        "quote": "overall capitalization rate of 7.5% is applicable"
+      },
+      {
+        "field": "net_operating_income",
+        "quote": "NET OPERATING INCOME $49,484"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"property_address\": \"605 N Dixie Hwy, Hallandale Beach, FL 33009\",\n  \"property_type\": \"industrial\",\n  \"as_is_market_value\": 656000,\n  \"effective_date\": \"2013-10-16\",\n  \"appraiser_firm\": \"L. B. Slater and Company, Inc.\",\n  \"building_area_sq_ft\": 5250,\n  \"units_or_beds\": null,\n  \"cap_rate_percent\": 7.5,\n  \"net_operating_income\": 49484,\n  \"evidence\": [\n    {\n      \"field\": \"property_address\",\n      \"quote\": \"605 N Dixie Hwy\\nHallandale Beach, FL 33009\"\n    },\n    {\n      \"field\": \"property_type\",\n      \"quote\": \"reports capitalization rates of 6.88% for industrial buildings in Broward\"\n    },\n    {\n      \"field\": \"as_is_market_value\",\n      \"quote\": \"Six Hundred Fifty Six Thousand Dollars or $ 656,000\"\n    },\n    {\n      \"field\": \"effective_date\",\n      \"quote\": \"October 16, 2013\"\n    },\n    {\n      \"field\": \"appraiser_firm\",\n      \"quote\": \"L. B. Slater and Company, Inc.\"\n    },\n    {\n      \"field\": \"building_area_sq_ft\",\n      \"quote\": \"Approximately 5,250+/- SF (adjusted)\"\n    },\n    {\n      \"field\": \"cap_rate_percent\",\n      \"quote\": \"overall capitalization rate of 7.5% is applicable\"\n    },\n    {\n      \"field\": \"net_operating_income\",\n      \"quote\": \"NET OPERATING INCOME $49,484\"\n    }\n  ]\n}"
+}

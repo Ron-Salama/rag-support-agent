@@ -1,0 +1,15 @@
+{
+  "_doc_type": "invoice",
+  "_file": "inv_contoso_100.pdf",
+  "_pages": 1,
+  "_notes": "",
+  "vendor_name": "CONTOSO LTD",
+  "invoice_number": "INV-100",
+  "invoice_date": "2019-11-15",
+  "due_date": "2019-12-15",
+  "bill_to": "MICROSOFT CORPORATION",
+  "subtotal": 100,
+  "tax": 10,
+  "total": 110,
+  "amount_due": 610
+}

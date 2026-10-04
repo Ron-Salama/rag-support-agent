@@ -1,0 +1,15 @@
+{
+  "_doc_type": "loan_agreement",
+  "_file": "loan_term_sfr_2026.htm",
+  "_pages": "",
+  "_notes": "",
+  "borrower_name": "STRAWBERRY FIELDS REALTY LP",
+  "lender_name": "POPULAR BANK",
+  "agreement_date": "2026-06-18",
+  "principal_amount": 100000000,
+  "interest_rate_type": "unknown",
+  "fixed_rate_percent": null,
+  "floating_index": null,
+  "spread_percent": null,
+  "maturity_date": null
+}

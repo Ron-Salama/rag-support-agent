@@ -1,0 +1,438 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "runs": 3,
+  "details": [
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "vendor_name",
+      "label": "Contoso, Ltd",
+      "preds": [
+        "Contoso, Ltd.",
+        "Contoso, Ltd.",
+        "Contoso, Ltd."
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "invoice_number",
+      "label": "9876",
+      "preds": [
+        "9876",
+        "9876",
+        "9876"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "invoice_date",
+      "label": "2020-09-10",
+      "preds": [
+        "2020-09-10",
+        "2020-09-10",
+        "2020-09-10"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "due_date",
+      "label": null,
+      "preds": [
+        null,
+        null,
+        null
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "bill_to",
+      "label": "Wingtip Toys",
+      "preds": [
+        "Wingtip Toys",
+        "Wingtip Toys",
+        "Wingtip Toys"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "subtotal",
+      "label": 10375,
+      "preds": [
+        10375.0,
+        10375.0,
+        10375.0
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "tax",
+      "label": null,
+      "preds": [
+        null,
+        null,
+        null
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "total",
+      "label": 10686.25,
+      "preds": [
+        10686.25,
+        10686.25,
+        10686.25
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "amount_due",
+      "label": null,
+      "preds": [
+        null,
+        null,
+        null
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "needs_review",
+        "needs_review",
+        "needs_review"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "vendor_name",
+      "label": "Sammy Maystone",
+      "preds": [
+        "Sammy Maystone",
+        "Sammy Maystone",
+        "Sammy Maystone"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "invoice_number",
+      "label": "invoice_number_1",
+      "preds": [
+        "invoice_number_1",
+        "invoice_number_1",
+        "invoice_number_1"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "invoice_date",
+      "label": "2022-01-01",
+      "preds": [
+        "2022-01-01",
+        "2022-01-01",
+        "2022-01-01"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "due_date",
+      "label": "2022-01-31",
+      "preds": [
+        "2022-01-31",
+        "2022-01-31",
+        "2022-01-31"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "bill_to",
+      "label": "Taylor Riddel",
+      "preds": [
+        "Taylor Riddel",
+        "Taylor Riddel",
+        "Taylor Riddel"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "subtotal",
+      "label": 127.5,
+      "preds": [
+        127.5,
+        127.5,
+        127.5
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "tax",
+      "label": 0,
+      "preds": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "total",
+      "label": 127.5,
+      "preds": [
+        127.5,
+        127.5,
+        127.5
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "amount_due",
+      "label": 127.5,
+      "preds": [
+        127.5,
+        127.5,
+        127.5
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "vendor_name",
+      "label": "Capozzi & Associates, P. C",
+      "preds": [
+        "Capozzi & Associates, P. C.",
+        "Capozzi & Associates, P. C.",
+        "Capozzi & Associates, P. C."
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "invoice_number",
+      "label": "10249",
+      "preds": [
+        "10249",
+        "10249",
+        "10249"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "invoice_date",
+      "label": "2000-04-18",
+      "preds": [
+        "2000-04-18",
+        "2000-04-18",
+        "2000-04-18"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "due_date",
+      "label": null,
+      "preds": [
+        null,
+        null,
+        null
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "bill_to",
+      "label": "Integrated Health Services",
+      "preds": [
+        "Integrated Health Services",
+        "Integrated Health Services",
+        "Integrated Health Services"
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "subtotal",
+      "label": 165,
+      "preds": [
+        165.0,
+        165.0,
+        165.0
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "tax",
+      "label": null,
+      "preds": [
+        null,
+        null,
+        null
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "total",
+      "label": 165,
+      "preds": [
+        165.0,
+        165.0,
+        165.0
+      ],
+      "runs_right": 3,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "amount_due",
+      "label": null,
+      "preds": [
+        null,
+        165.0,
+        null
+      ],
+      "runs_right": 2,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok"
+      ]
+    }
+  ]
+}

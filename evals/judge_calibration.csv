@@ -1,0 +1,110 @@
+﻿id,type,question,expected,system_answer,sources,human_verdict,human_notes,judge_verdict,judge_correct,judge_faithful,judge_reasoning
+a01,answerable,What P.O. number is printed on the Contoso invoice that shows a previous balance?,PO-3333,The P.O. number printed on the Contoso invoice showing a previous balance is PO-3333 [S1].,"[S1] inv_contoso_100 p.1: INVOICE
+CONTOSO LTD.
+Contoso Headquarters INVOICE: INV-100
+123 456th St DATE: 11/15/2019
+New York, NY, 10001 DUE DATE: 12/15/2019
+CUSTOMER NAME: MICROSOFT CORPORATION
+CUSTOMER ID: CID-12345
+Microsoft Corp
+123 Other St,
+Redmond WA, 98052
+BILL TO: SHIP TO: SERVICE ADDRESS:
+Microsoft Finance Microsoft Delivery Microsoft Services
+123 Bill St, 123 Ship St, 123 Service St,
+Redmond WA, 98052 Redmond WA, 98052 Redmond WA, 98052
+SALESPERSON P.O. NUMBER REQUISITIONER SHIPPED VIA F.O.B. POINT TERMS
+PO-3333
+QUANTITY DESCRIPTION UNIT PRICE TOTAL
+1 Test for 23 fields 1 $100.00
+SUBTOTAL $100.00
+SALES TAX $10.00
+TOTAL $110.00
+PREVIOUS BALANCE $500.00
+TOTAL DUE $610.00
+THANK YOU FOR YOUR BUSINESS!
+REMIT TO:
+Contoso Billing
+123 Remit St
+New York, NY, 10001",,,ok,True,True,"The system correctly identified the P.O. number as PO-3333, which matches the reference. This information is directly supported by the source document provided in [S1]."
+a02,answerable,What discount did Contoso give on the Leadership Training in its project statement?,"25% (line total $3,375 instead of the $4,500 price)",Contoso gave a 25% discount on the Leadership Training in its project statement [S1].,"[S1] inv_contoso_stmt6 p.1: Contoso, Ltd. Project Statement
+Date: 9/10/2020
+Receipt # No.: 9876
+Sold To Wingtip Toys
+554 Magnolia Way
+Walnut, WY, 98432
+ID#: 5554443
+Live Delivery: Online Delivery (Livestream): Video Delivery (On Demand):
+Training Date Description Price Discount Line Total
+12/5/2020 Manager Training $3,500 - $3,500
+12/10/2020 Manager Training $3,500 - $3,500
+12/11/2020 Leadership Training $4,500 25% $3,375
+Subtotal $10,375
+Sales Tax 3%
+Total $10,686.25
+Thank you for your business!",,,ok,True,True,The system correctly identified the 25% discount mentioned in the document and cited the correct source passage.
+a03,answerable,What are the payment terms on the Sammy Maystone invoice?,Net 30 days,The payment terms on the Sammy Maystone invoice are Net 30 days [S1].,"[S1] inv_sammy p.1: Sammy Maystone INVOICE
+smaystone4@fake.com
+# invoice_number_1
+Date: Jan 1, 2022
+Bill To: Ship To:
+Payment Terms: Net 30 days
+Taylor Riddel Taylor's Store
+triddel9@fake.com triddel9@fake.com Due Date: Jan 31, 2022
+PO Number: po_number_123
+Balance Due: $127.50
+Item Quantity Rate Amount
+Service A 12 $10.00 $120.00
+Description: Repair
+Notes: Replaced capacitor
+Parts: 1 x cap_a
+Tax: 0.2%
+Service B 5 $1.50 $7.50
+Description: Cleaning
+Notes: Removed debris from case
+Parts: 2 x shop supplies
+Tax: 0.4%
+Subtotal: $127.50
+Tax (0%): $0.00
+Total: $127.50
+Notes:
+All names are fictitious and in no way represent real people or places.",,,ok,True,True,The system correctly identified the payment terms from the document as Net 30 days and cited the correct source passage.
+a04,answerable,In which bankruptcy case did Capozzi and Associates file its fee application?,"Case No. 00-389 (MFW), a Chapter 11 case in the U.S. Bankruptcy Court for the District of Delaware","Capozzi and Associates filed its fee application in the bankruptcy case of Integrated Health Services, Inc., et al., Case No. 00-389 (MFW) [S1].","[S1] inv_capozzi_legal p.1: IN THE UNITED STATES BANKRUPTCY COURT
+FOR THE DISTRICT OF DELAWARE
+In re ) Chapter 11
+)
+INTEGRATED HEALTH SERVICES, INC., et al., )Case No. 00-389 (MFW)
+)
+Debtors. )Jointly Administered
+SCHEDULE A: BILLING REPORTS
+IN SUPPORT OF
+FIRST and FINAL APPLICATION
+OF CAPOZZI AND ASSOCIATES, P.C.
+FOR ALLOWANCE OF
+COMPENSATION AND
+REIMBURSEMENT OF UNPAID
+EXPENSES FOR THE PERIOD
+FEBRUARY 2, 2000 - MAY 12, 2003
+~i",,,ok,True,True,The system correctly identified the bankruptcy case number and the debtor name as stated in the document. The information is accurate according to the reference and supported by the source passage.
+a05,answerable,How much was charged for courier service on the Plymouth House audit appeal matter?,$15.00 (courier on Mar-08-00),The charge for courier service on the Plymouth House 12/31/96 MA Audit Appeal matter was 15.00 [S2].,"[S2] inv_capozzi_legal p.3: Capozzi & Associates, P. C.
+2933 North Front Street
+Harrisburg, PA 17110
+Ph: (717) 233-4101 Fax:(717) 233-4103 EIN #: 23-2911821
+Ronald Lord, Esquire, Associate, General Counsel
+Integrated Health Services April 18, 2000
+910 Ridgebrook Road
+Sparks, MD 21152
+File # 98-01488
+Inv # 10260
+RE: CLOSED. Plymouth House 12/31/96 MA Audit Appeal
+DATE DESCRIPTION HOURS AMOUNT TIMEKEEPER
+Mar-06-00 Prepared and drafted Request for Production 2.00 0.00 RJR
+of Documents; drafted and revised letter re
+document request and Certificate of Service
+Mar-07-00 Prepared and drafted Request for Answers to 2.00 .0.00 RJR
+Interrogatories for FYE 12/31/96 and 6/30/97
+Totals 4.00 0.00
+DISBURSEMENTS Disbursements Receipts
+Mar-08-00 Courier 3/8/2000 15.00
+Totals 15.00 0.00
+Total Fees & Disbursements 15.00",,,ok,True,True,The system correctly identified the $15.00 charge for the courier service and cited the correct document [S2] that contains this information.

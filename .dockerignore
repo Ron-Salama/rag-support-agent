@@ -1,0 +1,27 @@
+# .dockerignore = files Docker must NOT send into the build ("the build context").
+# Anything listed here can never end up in the image, even by accident, and the build starts faster.
+# One pattern per line. A "#" only starts a comment at the beginning of a line.
+
+# Your API key. It is passed at run time instead: docker run --env-file .env ...
+.env
+.env.*
+
+# The Windows virtual environment and local caches (pip downloads, models, LLM answers).
+# Useless inside Linux; the image installs and downloads its own.
+.venv
+.cache
+
+# Rebuilt inside the image (the search index) or produced at run time (predictions, review queue)
+chroma
+outputs
+
+# The original documents: the image only needs the text made from them (data/text, data/fulltext).
+data/raw
+# The hand labels (the extraction answer key): the API never reads them.
+data/labels
+
+# Git history, CI config and Python's compiled-file caches
+.git
+.github
+**/__pycache__
+**/*.pyc

@@ -1,0 +1,436 @@
+{
+  "date": "2026-10-01 17:29",
+  "command": "python -m evals.answer_eval --limit 5",
+  "mode": "rag",
+  "golden": "golden_draft.jsonl",
+  "partial": true,
+  "stopped_early": null,
+  "answer_model": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-flash-lite",
+  "k": 5,
+  "live_llm_calls": 16,
+  "summary": {
+    "false_refusals": {
+      "n": 0,
+      "of": 5,
+      "rate": 0.0
+    },
+    "false_refusals_right_page_retrieved": 0,
+    "correct": {
+      "n": 5,
+      "of": 5,
+      "rate": 1.0
+    },
+    "faithful": {
+      "n": 5,
+      "of": 5,
+      "rate": 1.0
+    },
+    "citation_right_page": {
+      "n": 5,
+      "of": 5,
+      "rate": 1.0
+    },
+    "citation_right_doc": {
+      "n": 5,
+      "of": 5,
+      "rate": 1.0
+    },
+    "trap_refusal_accuracy": {
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "traps_refused_by_system": 0,
+    "flagged_for_human_review": 0,
+    "errors": 0,
+    "judge_errors": 0
+  },
+  "questions": [
+    {
+      "id": "a01",
+      "type": "answerable",
+      "question": "What P.O. number is printed on the Contoso invoice that shows a previous balance?",
+      "answer": "PO-3333",
+      "why_unanswerable": null,
+      "doc_id": "inv_contoso_100",
+      "pages": [
+        1
+      ],
+      "system": {
+        "text": "The P.O. number printed on the Contoso invoice showing a previous balance is PO-3333 [S1].",
+        "refused": false,
+        "why": null,
+        "status": null,
+        "error": null,
+        "citations": [
+          {
+            "n": 1,
+            "chunk_id": "inv_contoso_100:p1:c1",
+            "doc_id": "inv_contoso_100",
+            "page": 1
+          }
+        ],
+        "retrieved": [
+          {
+            "chunk_id": "inv_contoso_100:p1:c1",
+            "doc_id": "inv_contoso_100",
+            "page": 1,
+            "score": 0.734
+          },
+          {
+            "chunk_id": "inv_sammy:p1:c1",
+            "doc_id": "inv_sammy",
+            "page": 1,
+            "score": 0.6711
+          },
+          {
+            "chunk_id": "loan_hud_northwood:p4:c6",
+            "doc_id": "loan_hud_northwood",
+            "page": 4,
+            "score": 0.6577
+          },
+          {
+            "chunk_id": "loan_hud_northwood:p11:c1",
+            "doc_id": "loan_hud_northwood",
+            "page": 11,
+            "score": 0.6504
+          },
+          {
+            "chunk_id": "loan_hud_northwood:p8:c1",
+            "doc_id": "loan_hud_northwood",
+            "page": 8,
+            "score": 0.6451
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": true,
+        "cited_right_page": true,
+        "retrieved_right_page": true,
+        "correct": true,
+        "faithful": true,
+        "reasoning": "The system correctly identified the P.O. number as PO-3333, which matches the reference. This information is directly supported by the source document provided in [S1].",
+        "judged_by": "llm"
+      },
+      "seconds": 27.2,
+      "sources": [
+        {
+          "n": 1,
+          "chunk_id": "inv_contoso_100:p1:c1",
+          "doc_id": "inv_contoso_100",
+          "page": 1,
+          "text": "INVOICE\nCONTOSO LTD.\nContoso Headquarters INVOICE: INV-100\n123 456th St DATE: 11/15/2019\nNew York, NY, 10001 DUE DATE: 12/15/2019\nCUSTOMER NAME: MICROSOFT CORPORATION\nCUSTOMER ID: CID-12345\nMicrosoft Corp\n123 Other St,\nRedmond WA, 98052\nBILL TO: SHIP TO: SERVICE ADDRESS:\nMicrosoft Finance Microsoft Delivery Microsoft Services\n123 Bill St, 123 Ship St, 123 Service St,\nRedmond WA, 98052 Redmond WA, 98052 Redmond WA, 98052\nSALESPERSON P.O. NUMBER REQUISITIONER SHIPPED VIA F.O.B. POINT TERMS\nPO-3333\nQUANTITY DESCRIPTION UNIT PRICE TOTAL\n1 Test for 23 fields 1 $100.00\nSUBTOTAL $100.00\nSALES TAX $10.00\nTOTAL $110.00\nPREVIOUS BALANCE $500.00\nTOTAL DUE $610.00\nTHANK YOU FOR YOUR BUSINESS!\nREMIT TO:\nContoso Billing\n123 Remit St\nNew York, NY, 10001"
+        }
+      ]
+    },
+    {
+      "id": "a02",
+      "type": "answerable",
+      "question": "What discount did Contoso give on the Leadership Training in its project statement?",
+      "answer": "25% (line total $3,375 instead of the $4,500 price)",
+      "why_unanswerable": null,
+      "doc_id": "inv_contoso_stmt6",
+      "pages": [
+        1
+      ],
+      "system": {
+        "text": "Contoso gave a 25% discount on the Leadership Training in its project statement [S1].",
+        "refused": false,
+        "why": null,
+        "status": null,
+        "error": null,
+        "citations": [
+          {
+            "n": 1,
+            "chunk_id": "inv_contoso_stmt6:p1:c1",
+            "doc_id": "inv_contoso_stmt6",
+            "page": 1
+          }
+        ],
+        "retrieved": [
+          {
+            "chunk_id": "inv_contoso_stmt6:p1:c1",
+            "doc_id": "inv_contoso_stmt6",
+            "page": 1,
+            "score": 0.7266
+          },
+          {
+            "chunk_id": "inv_contoso_100:p1:c1",
+            "doc_id": "inv_contoso_100",
+            "page": 1,
+            "score": 0.6041
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p6:c2",
+            "doc_id": "inv_capozzi_legal",
+            "page": 6,
+            "score": 0.5606
+          },
+          {
+            "chunk_id": "appr_chimney_mf:p84:c4",
+            "doc_id": "appr_chimney_mf",
+            "page": 84,
+            "score": 0.5444
+          },
+          {
+            "chunk_id": "appr_chimney_mf:p101:c3",
+            "doc_id": "appr_chimney_mf",
+            "page": 101,
+            "score": 0.5405
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": true,
+        "cited_right_page": true,
+        "retrieved_right_page": true,
+        "correct": true,
+        "faithful": true,
+        "reasoning": "The system correctly identified the 25% discount mentioned in the document and cited the correct source passage.",
+        "judged_by": "llm"
+      },
+      "seconds": 10.7,
+      "sources": [
+        {
+          "n": 1,
+          "chunk_id": "inv_contoso_stmt6:p1:c1",
+          "doc_id": "inv_contoso_stmt6",
+          "page": 1,
+          "text": "Contoso, Ltd. Project Statement\nDate: 9/10/2020\nReceipt # No.: 9876\nSold To Wingtip Toys\n554 Magnolia Way\nWalnut, WY, 98432\nID#: 5554443\nLive Delivery: Online Delivery (Livestream): Video Delivery (On Demand):\nTraining Date Description Price Discount Line Total\n12/5/2020 Manager Training $3,500 - $3,500\n12/10/2020 Manager Training $3,500 - $3,500\n12/11/2020 Leadership Training $4,500 25% $3,375\nSubtotal $10,375\nSales Tax 3%\nTotal $10,686.25\nThank you for your business!"
+        }
+      ]
+    },
+    {
+      "id": "a03",
+      "type": "answerable",
+      "question": "What are the payment terms on the Sammy Maystone invoice?",
+      "answer": "Net 30 days",
+      "why_unanswerable": null,
+      "doc_id": "inv_sammy",
+      "pages": [
+        1
+      ],
+      "system": {
+        "text": "The payment terms on the Sammy Maystone invoice are Net 30 days [S1].",
+        "refused": false,
+        "why": null,
+        "status": null,
+        "error": null,
+        "citations": [
+          {
+            "n": 1,
+            "chunk_id": "inv_sammy:p1:c1",
+            "doc_id": "inv_sammy",
+            "page": 1
+          }
+        ],
+        "retrieved": [
+          {
+            "chunk_id": "inv_sammy:p1:c1",
+            "doc_id": "inv_sammy",
+            "page": 1,
+            "score": 0.7169
+          },
+          {
+            "chunk_id": "loan_hud_northwood:p11:c1",
+            "doc_id": "loan_hud_northwood",
+            "page": 11,
+            "score": 0.6247
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p4:c2",
+            "doc_id": "inv_capozzi_legal",
+            "page": 4,
+            "score": 0.6177
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p20:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 20,
+            "score": 0.5964
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p18:c2",
+            "doc_id": "inv_capozzi_legal",
+            "page": 18,
+            "score": 0.5943
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": true,
+        "cited_right_page": true,
+        "retrieved_right_page": true,
+        "correct": true,
+        "faithful": true,
+        "reasoning": "The system correctly identified the payment terms from the document as Net 30 days and cited the correct source passage.",
+        "judged_by": "llm"
+      },
+      "seconds": 3.7,
+      "sources": [
+        {
+          "n": 1,
+          "chunk_id": "inv_sammy:p1:c1",
+          "doc_id": "inv_sammy",
+          "page": 1,
+          "text": "Sammy Maystone INVOICE\nsmaystone4@fake.com\n# invoice_number_1\nDate: Jan 1, 2022\nBill To: Ship To:\nPayment Terms: Net 30 days\nTaylor Riddel Taylor's Store\ntriddel9@fake.com triddel9@fake.com Due Date: Jan 31, 2022\nPO Number: po_number_123\nBalance Due: $127.50\nItem Quantity Rate Amount\nService A 12 $10.00 $120.00\nDescription: Repair\nNotes: Replaced capacitor\nParts: 1 x cap_a\nTax: 0.2%\nService B 5 $1.50 $7.50\nDescription: Cleaning\nNotes: Removed debris from case\nParts: 2 x shop supplies\nTax: 0.4%\nSubtotal: $127.50\nTax (0%): $0.00\nTotal: $127.50\nNotes:\nAll names are fictitious and in no way represent real people or places."
+        }
+      ]
+    },
+    {
+      "id": "a04",
+      "type": "answerable",
+      "question": "In which bankruptcy case did Capozzi and Associates file its fee application?",
+      "answer": "Case No. 00-389 (MFW), a Chapter 11 case in the U.S. Bankruptcy Court for the District of Delaware",
+      "why_unanswerable": null,
+      "doc_id": "inv_capozzi_legal",
+      "pages": [
+        1
+      ],
+      "system": {
+        "text": "Capozzi and Associates filed its fee application in the bankruptcy case of Integrated Health Services, Inc., et al., Case No. 00-389 (MFW) [S1].",
+        "refused": false,
+        "why": null,
+        "status": null,
+        "error": null,
+        "citations": [
+          {
+            "n": 1,
+            "chunk_id": "inv_capozzi_legal:p1:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 1
+          }
+        ],
+        "retrieved": [
+          {
+            "chunk_id": "inv_capozzi_legal:p1:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 1,
+            "score": 0.6992
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p8:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 8,
+            "score": 0.677
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p13:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 13,
+            "score": 0.6708
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p4:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 4,
+            "score": 0.669
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p15:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 15,
+            "score": 0.6642
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": true,
+        "cited_right_page": true,
+        "retrieved_right_page": true,
+        "correct": true,
+        "faithful": true,
+        "reasoning": "The system correctly identified the bankruptcy case number and the debtor name as stated in the document. The information is accurate according to the reference and supported by the source passage.",
+        "judged_by": "llm"
+      },
+      "seconds": 11.6,
+      "sources": [
+        {
+          "n": 1,
+          "chunk_id": "inv_capozzi_legal:p1:c1",
+          "doc_id": "inv_capozzi_legal",
+          "page": 1,
+          "text": "IN THE UNITED STATES BANKRUPTCY COURT\nFOR THE DISTRICT OF DELAWARE\nIn re ) Chapter 11\n)\nINTEGRATED HEALTH SERVICES, INC., et al., )Case No. 00-389 (MFW)\n)\nDebtors. )Jointly Administered\nSCHEDULE A: BILLING REPORTS\nIN SUPPORT OF\nFIRST and FINAL APPLICATION\nOF CAPOZZI AND ASSOCIATES, P.C.\nFOR ALLOWANCE OF\nCOMPENSATION AND\nREIMBURSEMENT OF UNPAID\nEXPENSES FOR THE PERIOD\nFEBRUARY 2, 2000 - MAY 12, 2003\n~i"
+        }
+      ]
+    },
+    {
+      "id": "a05",
+      "type": "answerable",
+      "question": "How much was charged for courier service on the Plymouth House audit appeal matter?",
+      "answer": "$15.00 (courier on Mar-08-00)",
+      "why_unanswerable": null,
+      "doc_id": "inv_capozzi_legal",
+      "pages": [
+        3
+      ],
+      "system": {
+        "text": "The charge for courier service on the Plymouth House 12/31/96 MA Audit Appeal matter was 15.00 [S2].",
+        "refused": false,
+        "why": null,
+        "status": null,
+        "error": null,
+        "citations": [
+          {
+            "n": 2,
+            "chunk_id": "inv_capozzi_legal:p3:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 3
+          }
+        ],
+        "retrieved": [
+          {
+            "chunk_id": "inv_capozzi_legal:p20:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 20,
+            "score": 0.7218
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p3:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 3,
+            "score": 0.671
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p14:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 14,
+            "score": 0.6563
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p9:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 9,
+            "score": 0.6549
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p19:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 19,
+            "score": 0.6529
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": true,
+        "cited_right_page": true,
+        "retrieved_right_page": true,
+        "correct": true,
+        "faithful": true,
+        "reasoning": "The system correctly identified the $15.00 charge for the courier service and cited the correct document [S2] that contains this information.",
+        "judged_by": "llm"
+      },
+      "seconds": 5.0,
+      "sources": [
+        {
+          "n": 2,
+          "chunk_id": "inv_capozzi_legal:p3:c1",
+          "doc_id": "inv_capozzi_legal",
+          "page": 3,
+          "text": "Capozzi & Associates, P. C.\n2933 North Front Street\nHarrisburg, PA 17110\nPh: (717) 233-4101 Fax:(717) 233-4103 EIN #: 23-2911821\nRonald Lord, Esquire, Associate, General Counsel\nIntegrated Health Services April 18, 2000\n910 Ridgebrook Road\nSparks, MD 21152\nFile # 98-01488\nInv # 10260\nRE: CLOSED. Plymouth House 12/31/96 MA Audit Appeal\nDATE DESCRIPTION HOURS AMOUNT TIMEKEEPER\nMar-06-00 Prepared and drafted Request for Production 2.00 0.00 RJR\nof Documents; drafted and revised letter re\ndocument request and Certificate of Service\nMar-07-00 Prepared and drafted Request for Answers to 2.00 .0.00 RJR\nInterrogatories for FYE 12/31/96 and 6/30/97\nTotals 4.00 0.00\nDISBURSEMENTS Disbursements Receipts\nMar-08-00 Courier 3/8/2000 15.00\nTotals 15.00 0.00\nTotal Fees & Disbursements 15.00"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "_doc_type": "financial_statement",
+  "_file": "fs_omega_q2_2026.htm",
+  "_pages": "",
+  "_notes": "",
+  "company_name": "Omega Healthcare Investors, Inc.",
+  "period_end_date": "2026-06-30",
+  "period_months": 3,
+  "units": "thousands",
+  "total_revenue": 328246,
+  "net_income": 362823,
+  "ffo": 223963,
+  "total_assets": 10014761
+}

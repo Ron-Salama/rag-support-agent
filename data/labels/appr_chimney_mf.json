@@ -1,0 +1,15 @@
+{
+  "_doc_type": "appraisal",
+  "_file": "appr_chimney_mf.htm",
+  "_pages": "1,3-4,8-11",
+  "_notes": "",
+  "property_address": "3201 South 23rd Street",
+  "property_type": "multifamily",
+  "as_is_market_value": 5250000,
+  "effective_date": "2007-01-02",
+  "appraiser_firm": "Deverick & Associates, Inc.",
+  "building_area_sq_ft": 128054,
+  "units_or_beds": 128,
+  "cap_rate_percent": 8.25,
+  "net_operating_income": 435846
+}

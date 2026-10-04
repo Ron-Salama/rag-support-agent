@@ -1,0 +1,14 @@
+{
+  "_doc_type": "financial_statement",
+  "_file": "fs_sfr_fy2025.htm",
+  "_pages": "",
+  "_notes": "",
+  "company_name": "Strawberry Fields REIT, Inc.",
+  "period_end_date": "2025-12-31",
+  "period_months": 12,
+  "units": "thousands",
+  "total_revenue": 154999,
+  "net_income": 7575,
+  "ffo": 79567,
+  "total_assets": 885225
+}

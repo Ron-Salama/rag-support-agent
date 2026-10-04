@@ -1,0 +1,42 @@
+{
+  "doc_id": "loan_term_sfr_2026",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "borrower_name": "STRAWBERRY FIELDS REALTY LP",
+    "lender_name": "POPULAR BANK",
+    "agreement_date": "2026-06-18",
+    "principal_amount": 100000000.0,
+    "interest_rate_type": "unknown",
+    "fixed_rate_percent": null,
+    "floating_index": null,
+    "spread_percent": null,
+    "maturity_date": null,
+    "collateral_description": "certain real and personal property as identified in the Loan Agreement",
+    "evidence": [
+      {
+        "field": "borrower_name",
+        "quote": "STRAWBERRY FIELDS REALTY LP, a Delaware limited partnership"
+      },
+      {
+        "field": "lender_name",
+        "quote": "POPULAR BANK, a New York State chartered commercial bank"
+      },
+      {
+        "field": "agreement_date",
+        "quote": "$100,000,000.00 | June 18, 2026"
+      },
+      {
+        "field": "principal_amount",
+        "quote": "principal sum of ONE HUNDRED MILLION AND NO/100 Dollars ($100,000,000.00)"
+      },
+      {
+        "field": "collateral_description",
+        "quote": "Payment of this Term Loan Note is secured by certain real and personal property as identified in the Loan Agreement."
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"borrower_name\": \"STRAWBERRY FIELDS REALTY LP\",\n  \"lender_name\": \"POPULAR BANK\",\n  \"agreement_date\": \"2026-06-18\",\n  \"principal_amount\": 100000000.00,\n  \"interest_rate_type\": \"unknown\",\n  \"fixed_rate_percent\": null,\n  \"floating_index\": null,\n  \"spread_percent\": null,\n  \"maturity_date\": null,\n  \"collateral_description\": \"certain real and personal property as identified in the Loan Agreement\",\n  \"evidence\": [\n    {\n      \"field\": \"borrower_name\",\n      \"quote\": \"STRAWBERRY FIELDS REALTY LP, a Delaware limited partnership\"\n    },\n    {\n      \"field\": \"lender_name\",\n      \"quote\": \"POPULAR BANK, a New York State chartered commercial bank\"\n    },\n    {\n      \"field\": \"agreement_date\",\n      \"quote\": \"$100,000,000.00 | June 18, 2026\"\n    },\n    {\n      \"field\": \"principal_amount\",\n      \"quote\": \"principal sum of ONE HUNDRED MILLION AND NO/100 Dollars ($100,000,000.00)\"\n    },\n    {\n      \"field\": \"collateral_description\",\n      \"quote\": \"Payment of this Term Loan Note is secured by certain real and personal property as identified in the Loan Agreement.\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,15 @@
+{
+  "_doc_type": "appraisal",
+  "_file": "appr_hallandale_comm.pdf",
+  "_pages": "1-2,8,38-39",
+  "_notes": "",
+  "property_address": "605 N Dixie Hwy,Hallandale Beach, FL 33009",
+  "property_type": "other",
+  "as_is_market_value":  656000,
+  "effective_date": "2013-10-16",
+  "appraiser_firm": "L. B. Slater and Company, Inc.",
+  "building_area_sq_ft": 5250,
+  "units_or_beds": null,
+  "cap_rate_percent": 7.5,
+  "net_operating_income": 49484
+}

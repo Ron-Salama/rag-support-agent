@@ -1,0 +1,15 @@
+{
+  "_doc_type": "invoice",
+  "_file": "inv_contoso_stmt6.pdf",
+  "_pages": "",
+  "_notes": "",
+  "vendor_name": "Contoso, Ltd",
+  "invoice_number": "9876",
+  "invoice_date": "2020-09-10",
+  "due_date": null,
+  "bill_to": "Wingtip Toys",
+  "subtotal": 10375,
+  "tax": null,
+  "total": 10686.25,
+  "amount_due": null
+}

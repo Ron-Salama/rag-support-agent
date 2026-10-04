@@ -1,0 +1,585 @@
+{
+  "date": "2026-10-01 17:50",
+  "command": "python -m evals.retrieval_eval ",
+  "golden": "golden_draft.jsonl",
+  "index": "chroma",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "chunk_size": 800,
+  "overlap": 150,
+  "n_questions": 24,
+  "metrics": {
+    "hit@1": 0.5833333333333334,
+    "hit@3": 0.7916666666666666,
+    "hit@5": 0.8333333333333334,
+    "hit@10": 0.9166666666666666,
+    "mrr": 0.6979166666666666,
+    "quote@5": 0.8333333333333334
+  },
+  "questions": [
+    {
+      "id": "a01",
+      "doc_id": "inv_contoso_100",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "inv_contoso_100:p1:c1",
+          "score": 0.734
+        },
+        {
+          "chunk_id": "inv_sammy:p1:c1",
+          "score": 0.6711
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p4:c6",
+          "score": 0.6577
+        }
+      ]
+    },
+    {
+      "id": "a02",
+      "doc_id": "inv_contoso_stmt6",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "inv_contoso_stmt6:p1:c1",
+          "score": 0.7266
+        },
+        {
+          "chunk_id": "inv_contoso_100:p1:c1",
+          "score": 0.6041
+        },
+        {
+          "chunk_id": "inv_capozzi_legal:p6:c2",
+          "score": 0.5606
+        }
+      ]
+    },
+    {
+      "id": "a03",
+      "doc_id": "inv_sammy",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "inv_sammy:p1:c1",
+          "score": 0.7169
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p11:c1",
+          "score": 0.6247
+        },
+        {
+          "chunk_id": "inv_capozzi_legal:p4:c2",
+          "score": 0.6177
+        }
+      ]
+    },
+    {
+      "id": "a04",
+      "doc_id": "inv_capozzi_legal",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "inv_capozzi_legal:p1:c1",
+          "score": 0.6992
+        },
+        {
+          "chunk_id": "inv_capozzi_legal:p8:c1",
+          "score": 0.677
+        },
+        {
+          "chunk_id": "inv_capozzi_legal:p13:c1",
+          "score": 0.6708
+        }
+      ]
+    },
+    {
+      "id": "a05",
+      "doc_id": "inv_capozzi_legal",
+      "pages": [
+        3
+      ],
+      "rank": 2,
+      "quote_rank": 2,
+      "top": [
+        {
+          "chunk_id": "inv_capozzi_legal:p20:c1",
+          "score": 0.7218
+        },
+        {
+          "chunk_id": "inv_capozzi_legal:p3:c1",
+          "score": 0.671
+        },
+        {
+          "chunk_id": "inv_capozzi_legal:p14:c1",
+          "score": 0.6563
+        }
+      ]
+    },
+    {
+      "id": "a06",
+      "doc_id": "fs_omega_q2_2026",
+      "pages": [
+        1,
+        5,
+        6
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "fs_omega_q2_2026:p5:c6",
+          "score": 0.7215
+        },
+        {
+          "chunk_id": "fs_omega_q2_2026:p1:c1",
+          "score": 0.713
+        },
+        {
+          "chunk_id": "fs_sabra_q2_2026:p2:c1",
+          "score": 0.7019
+        }
+      ]
+    },
+    {
+      "id": "a07",
+      "doc_id": "fs_omega_q2_2026",
+      "pages": [
+        6
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "fs_omega_q2_2026:p6:c1",
+          "score": 0.7954
+        },
+        {
+          "chunk_id": "fs_nhi_q2_2026:p1:c7",
+          "score": 0.7683
+        },
+        {
+          "chunk_id": "fs_omega_q2_2026:p1:c1",
+          "score": 0.7627
+        }
+      ]
+    },
+    {
+      "id": "a08",
+      "doc_id": "fs_sabra_q2_2026",
+      "pages": [
+        2
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "fs_sabra_q2_2026:p2:c6",
+          "score": 0.7814
+        },
+        {
+          "chunk_id": "fs_sabra_q2_2026:p7:c3",
+          "score": 0.7345
+        },
+        {
+          "chunk_id": "fs_sabra_q2_2026:p9:c1",
+          "score": 0.7167
+        }
+      ]
+    },
+    {
+      "id": "a09",
+      "doc_id": "fs_sabra_q2_2026",
+      "pages": [
+        2
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "fs_sabra_q2_2026:p2:c1",
+          "score": 0.8147
+        },
+        {
+          "chunk_id": "fs_sabra_q2_2026:p1:c1",
+          "score": 0.7139
+        },
+        {
+          "chunk_id": "fs_sabra_q2_2026:p7:c3",
+          "score": 0.6974
+        }
+      ]
+    },
+    {
+      "id": "a10",
+      "doc_id": "fs_nhi_q2_2026",
+      "pages": [
+        4
+      ],
+      "rank": 2,
+      "quote_rank": 4,
+      "top": [
+        {
+          "chunk_id": "fs_omega_q2_2026:p5:c6",
+          "score": 0.7301
+        },
+        {
+          "chunk_id": "fs_nhi_q2_2026:p4:c1",
+          "score": 0.7247
+        },
+        {
+          "chunk_id": "fs_sabra_q2_2026:p2:c1",
+          "score": 0.7085
+        }
+      ]
+    },
+    {
+      "id": "a11",
+      "doc_id": "fs_sfr_fy2025",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "fs_sfr_fy2025:p1:c18",
+          "score": 0.8771
+        },
+        {
+          "chunk_id": "fs_sfr_fy2025:p1:c28",
+          "score": 0.7567
+        },
+        {
+          "chunk_id": "fs_sfr_fy2025:p1:c26",
+          "score": 0.7357
+        }
+      ]
+    },
+    {
+      "id": "a12",
+      "doc_id": "loan_hud_northwood",
+      "pages": [
+        2
+      ],
+      "rank": 6,
+      "quote_rank": null,
+      "top": [
+        {
+          "chunk_id": "loan_hud_northwood:p1:c3",
+          "score": 0.7155
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p10:c1",
+          "score": 0.6808
+        },
+        {
+          "chunk_id": "loan_hud_friendship:p2:c1",
+          "score": 0.6788
+        }
+      ]
+    },
+    {
+      "id": "a13",
+      "doc_id": "loan_hud_northwood",
+      "pages": [
+        10
+      ],
+      "rank": 6,
+      "quote_rank": 6,
+      "top": [
+        {
+          "chunk_id": "loan_hud_northwood:p4:c6",
+          "score": 0.7292
+        },
+        {
+          "chunk_id": "loan_hud_friendship:p4:c7",
+          "score": 0.7289
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p4:c3",
+          "score": 0.7254
+        }
+      ]
+    },
+    {
+      "id": "a14",
+      "doc_id": "loan_hud_friendship",
+      "pages": [
+        2
+      ],
+      "rank": 4,
+      "quote_rank": 4,
+      "top": [
+        {
+          "chunk_id": "loan_hud_northwood:p11:c1",
+          "score": 0.707
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p4:c6",
+          "score": 0.6884
+        },
+        {
+          "chunk_id": "loan_hud_friendship:p4:c7",
+          "score": 0.6832
+        }
+      ]
+    },
+    {
+      "id": "a15",
+      "doc_id": "loan_hud_friendship",
+      "pages": [
+        8,
+        11
+      ],
+      "rank": 2,
+      "quote_rank": 2,
+      "top": [
+        {
+          "chunk_id": "loan_hud_friendship:p1:c3",
+          "score": 0.7375
+        },
+        {
+          "chunk_id": "loan_hud_friendship:p8:c1",
+          "score": 0.6946
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p8:c1",
+          "score": 0.6903
+        }
+      ]
+    },
+    {
+      "id": "a16",
+      "doc_id": "loan_note_jshighland",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 2,
+      "top": [
+        {
+          "chunk_id": "loan_note_jshighland:p1:c3",
+          "score": 0.7484
+        },
+        {
+          "chunk_id": "loan_note_jshighland:p1:c2",
+          "score": 0.7319
+        },
+        {
+          "chunk_id": "loan_hud_northwood:p8:c1",
+          "score": 0.6587
+        }
+      ]
+    },
+    {
+      "id": "a17",
+      "doc_id": "loan_note_jshighland",
+      "pages": [
+        2
+      ],
+      "rank": 3,
+      "quote_rank": 3,
+      "top": [
+        {
+          "chunk_id": "loan_hud_northwood:p3:c4",
+          "score": 0.7378
+        },
+        {
+          "chunk_id": "loan_hud_friendship:p3:c3",
+          "score": 0.7378
+        },
+        {
+          "chunk_id": "loan_note_jshighland:p2:c1",
+          "score": 0.729
+        }
+      ]
+    },
+    {
+      "id": "a18",
+      "doc_id": "loan_term_sfr_2026",
+      "pages": [
+        1
+      ],
+      "rank": 1,
+      "quote_rank": 2,
+      "top": [
+        {
+          "chunk_id": "loan_term_sfr_2026:p1:c1",
+          "score": 0.7544
+        },
+        {
+          "chunk_id": "loan_term_sfr_2026:p1:c15",
+          "score": 0.7267
+        },
+        {
+          "chunk_id": "fs_sfr_fy2025:p1:c26",
+          "score": 0.7207
+        }
+      ]
+    },
+    {
+      "id": "a19",
+      "doc_id": "appr_chimney_mf",
+      "pages": [
+        9,
+        21,
+        46,
+        48
+      ],
+      "rank": 3,
+      "quote_rank": 3,
+      "top": [
+        {
+          "chunk_id": "appr_chimney_mf:p24:c3",
+          "score": 0.7151
+        },
+        {
+          "chunk_id": "appr_chimney_mf:p85:c1",
+          "score": 0.6923
+        },
+        {
+          "chunk_id": "appr_chimney_mf:p46:c4",
+          "score": 0.6916
+        }
+      ]
+    },
+    {
+      "id": "a20",
+      "doc_id": "appr_chimney_mf",
+      "pages": [
+        9,
+        45,
+        50
+      ],
+      "rank": null,
+      "quote_rank": null,
+      "top": [
+        {
+          "chunk_id": "appr_chimney_mf:p21:c1",
+          "score": 0.7311
+        },
+        {
+          "chunk_id": "appr_chimney_mf:p85:c1",
+          "score": 0.7273
+        },
+        {
+          "chunk_id": "appr_chimney_mf:p24:c3",
+          "score": 0.7093
+        }
+      ]
+    },
+    {
+      "id": "a21",
+      "doc_id": "appr_valleyview_alf",
+      "pages": [
+        53,
+        106
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "appr_valleyview_alf:p53:c2",
+          "score": 0.7802
+        },
+        {
+          "chunk_id": "appr_valleyview_alf:p4:c1",
+          "score": 0.7543
+        },
+        {
+          "chunk_id": "appr_valleyview_alf:p16:c1",
+          "score": 0.7383
+        }
+      ]
+    },
+    {
+      "id": "a22",
+      "doc_id": "appr_valleyview_alf",
+      "pages": [
+        73
+      ],
+      "rank": null,
+      "quote_rank": null,
+      "top": [
+        {
+          "chunk_id": "appr_valleyview_alf:p4:c1",
+          "score": 0.7432
+        },
+        {
+          "chunk_id": "appr_valleyview_alf:p16:c1",
+          "score": 0.732
+        },
+        {
+          "chunk_id": "appr_valleyview_alf:p53:c2",
+          "score": 0.7253
+        }
+      ]
+    },
+    {
+      "id": "a23",
+      "doc_id": "appr_hallandale_comm",
+      "pages": [
+        8,
+        14,
+        17,
+        25
+      ],
+      "rank": 1,
+      "quote_rank": 2,
+      "top": [
+        {
+          "chunk_id": "appr_hallandale_comm:p17:c3",
+          "score": 0.7846
+        },
+        {
+          "chunk_id": "appr_hallandale_comm:p8:c1",
+          "score": 0.781
+        },
+        {
+          "chunk_id": "appr_hallandale_comm:p2:c1",
+          "score": 0.7449
+        }
+      ]
+    },
+    {
+      "id": "a24",
+      "doc_id": "appr_hallandale_comm",
+      "pages": [
+        8,
+        15
+      ],
+      "rank": 1,
+      "quote_rank": 1,
+      "top": [
+        {
+          "chunk_id": "appr_hallandale_comm:p8:c1",
+          "score": 0.7371
+        },
+        {
+          "chunk_id": "appr_hallandale_comm:p2:c1",
+          "score": 0.6818
+        },
+        {
+          "chunk_id": "appr_hallandale_comm:p17:c3",
+          "score": 0.667
+        }
+      ]
+    }
+  ]
+}

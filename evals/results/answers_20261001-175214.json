@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-01 17:52",
+  "command": "python -m evals.answer_eval --ids a19,t08",
+  "mode": "rag",
+  "golden": "golden_draft.jsonl",
+  "partial": true,
+  "stopped_early": null,
+  "answer_model": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-flash-lite",
+  "k": 5,
+  "live_llm_calls": 3,
+  "summary": {
+    "false_refusals": {
+      "n": 0,
+      "of": 1,
+      "rate": 0.0
+    },
+    "false_refusals_right_page_retrieved": 0,
+    "correct": {
+      "n": 1,
+      "of": 1,
+      "rate": 1.0
+    },
+    "faithful": {
+      "n": 1,
+      "of": 1,
+      "rate": 1.0
+    },
+    "citation_right_page": {
+      "n": 1,
+      "of": 1,
+      "rate": 1.0
+    },
+    "citation_right_doc": {
+      "n": 1,
+      "of": 1,
+      "rate": 1.0
+    },
+    "trap_refusal_accuracy": {
+      "n": 1,
+      "of": 1,
+      "rate": 1.0
+    },
+    "traps_refused_by_system": 1,
+    "flagged_for_human_review": 0,
+    "errors": 0,
+    "judge_errors": 0
+  },
+  "questions": [
+    {
+      "id": "a19",
+      "type": "answerable",
+      "question": "How many parking spaces does the Chimney Square apartment complex have?",
+      "answer": "245 in total: 199 surface spaces (134 of them carports) plus 46 garage spaces",
+      "why_unanswerable": null,
+      "doc_id": "appr_chimney_mf",
+      "pages": [
+        9,
+        21,
+        46,
+        48
+      ],
+      "system": {
+        "text": "The Chimney Square apartment complex has 245 parking spaces [S3].",
+        "refused": false,
+        "why": null,
+        "status": null,
+        "error": null,
+        "citations": [
+          {
+            "n": 3,
+            "chunk_id": "appr_chimney_mf:p46:c4",
+            "doc_id": "appr_chimney_mf",
+            "page": 46
+          }
+        ],
+        "retrieved": [
+          {
+            "chunk_id": "appr_chimney_mf:p24:c3",
+            "doc_id": "appr_chimney_mf",
+            "page": 24,
+            "score": 0.7151
+          },
+          {
+            "chunk_id": "appr_chimney_mf:p85:c1",
+            "doc_id": "appr_chimney_mf",
+            "page": 85,
+            "score": 0.6923
+          },
+          {
+            "chunk_id": "appr_chimney_mf:p46:c4",
+            "doc_id": "appr_chimney_mf",
+            "page": 46,
+            "score": 0.6916
+          },
+          {
+            "chunk_id": "appr_chimney_mf:p21:c1",
+            "doc_id": "appr_chimney_mf",
+            "page": 21,
+            "score": 0.6867
+          },
+          {
+            "chunk_id": "appr_chimney_mf:p3:c1",
+            "doc_id": "appr_chimney_mf",
+            "page": 3,
+            "score": 0.6633
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": true,
+        "cited_right_page": true,
+        "retrieved_right_page": true,
+        "correct": true,
+        "faithful": true,
+        "reasoning": "The system correctly identifies the total number of parking spaces as stated in the text. Although the reference provides a more granular breakdown, the system's answer is accurate based on the provided reference and is fully supported by the cited passage.",
+        "judged_by": "llm"
+      },
+      "seconds": 11.2,
+      "sources": [
+        {
+          "n": 3,
+          "chunk_id": "appr_chimney_mf:p46:c4",
+          "doc_id": "appr_chimney_mf",
+          "page": 46,
+          "text": "and an overall project density of 16.9 units per acre. The subject site has 245 parking spaces, indicating a parking ratio of 1.91 spaces per unit. Of the total available spaces available, 134 are carports and 46 are garage spaces that are provided to the tenants at no additional charge. Overall, the subject improvements are considered to be in average condition and compete well with neighboring properties. The following chart summarizes the unit mix for the subject property:\nUnit Mix For Chimney Square\nType | Units | % of Total | SF/Unit | Total SF | Amenities\n1 Bd 1.0 Ba | 8 | 6.3% | 670 | 5,360 | Standard appliances, FP\n1 Bd 1.0 Ba | 44 | 34.4% | 684 | 30,096 | Standard appliances, FP\n2 Bd 1.0 Ba | 40 | 31.3% | 958 | 38,320 | Standard appliances, WDC, FP"
+        }
+      ]
+    },
+    {
+      "id": "t08",
+      "type": "trap",
+      "question": "What is Omega's Adjusted FFO guidance per share for 2027?",
+      "answer": null,
+      "why_unanswerable": "Omega only gives 2026 guidance; nothing for 2027.",
+      "doc_id": null,
+      "pages": null,
+      "system": {
+        "text": "I could not find the answer to this in the documents.",
+        "refused": true,
+        "why": "the model found no answer in the retrieved sources",
+        "status": null,
+        "error": null,
+        "citations": [],
+        "retrieved": [
+          {
+            "chunk_id": "fs_omega_q2_2026:p6:c1",
+            "doc_id": "fs_omega_q2_2026",
+            "page": 6,
+            "score": 0.7618
+          },
+          {
+            "chunk_id": "fs_omega_q2_2026:p11:c1",
+            "doc_id": "fs_omega_q2_2026",
+            "page": 11,
+            "score": 0.75
+          },
+          {
+            "chunk_id": "fs_omega_q2_2026:p1:c6",
+            "doc_id": "fs_omega_q2_2026",
+            "page": 1,
+            "score": 0.7494
+          },
+          {
+            "chunk_id": "fs_nhi_q2_2026:p1:c7",
+            "doc_id": "fs_nhi_q2_2026",
+            "page": 1,
+            "score": 0.7449
+          },
+          {
+            "chunk_id": "fs_nhi_q2_2026:p5:c1",
+            "doc_id": "fs_nhi_q2_2026",
+            "page": 5,
+            "score": 0.7355
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": null,
+        "cited_right_page": null,
+        "retrieved_right_page": null,
+        "correct": true,
+        "faithful": null,
+        "reasoning": null,
+        "judged_by": "code"
+      },
+      "seconds": 1.6,
+      "sources": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "_doc_type": "invoice",
+  "_file": "inv_capozzi_legal.pdf",
+  "_pages": "2",
+  "_notes": "",
+  "vendor_name": "Capozzi & Associates, P. C",
+  "invoice_number": "10249",
+  "invoice_date": "2000-04-18",
+  "due_date": null,
+  "bill_to": "Integrated Health Services",
+  "subtotal": 165,
+  "tax": null,
+  "total": 165,
+  "amount_due": null
+}

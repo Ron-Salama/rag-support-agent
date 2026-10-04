@@ -1,0 +1,15 @@
+inv_contoso_100          ok            attempts=1    2.0s
+inv_contoso_stmt6        needs_review  attempts=3   12.7s  problems: ['subtotal + tax + other_charges = 10,375.00 but total = 10,686.25 (re-read these amounts; an amount that is not printed stays null, never calculate it)']
+inv_sammy                ok            attempts=1    4.3s
+inv_capozzi_legal        ok            attempts=1    4.5s
+fs_omega_q2_2026         ok            attempts=1    0.1s
+fs_sabra_q2_2026         ok            attempts=1    0.0s
+fs_nhi_q2_2026           ok            attempts=1    0.0s
+fs_sfr_fy2025            ok            attempts=1    0.0s
+loan_hud_northwood       ok            attempts=1    0.0s
+loan_hud_friendship      ok            attempts=1    0.0s
+loan_note_jshighland     ok            attempts=1    0.0s
+loan_term_sfr_2026       ok            attempts=1    0.0s
+appr_valleyview_alf      ok            attempts=1    0.0s
+appr_chimney_mf          ok            attempts=1    0.0s
+appr_hallandale_comm     ok            attempts=1    0.0s

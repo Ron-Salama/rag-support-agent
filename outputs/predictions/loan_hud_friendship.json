@@ -1,0 +1,50 @@
+{
+  "doc_id": "loan_hud_friendship",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "borrower_name": "CHP FRIENDSWOOD SNF, LLC",
+    "lender_name": "ORIX REAL ESTATE CAPITAL, LLC",
+    "agreement_date": "2020-04-01",
+    "principal_amount": 11863400.0,
+    "interest_rate_type": "fixed",
+    "fixed_rate_percent": 2.79,
+    "floating_index": null,
+    "spread_percent": null,
+    "maturity_date": "2055-05-01",
+    "collateral_description": "Friendship Haven Healthcare and Rehabilitation Center",
+    "evidence": [
+      {
+        "field": "borrower_name",
+        "quote": "CHP FRIENDSWOOD SNF, LLC"
+      },
+      {
+        "field": "lender_name",
+        "quote": "ORIX REAL ESTATE CAPITAL, LLC"
+      },
+      {
+        "field": "agreement_date",
+        "quote": "US $ 11,863,400.00 | April 1, 2020"
+      },
+      {
+        "field": "principal_amount",
+        "quote": "US $ 11,863,400.00"
+      },
+      {
+        "field": "fixed_rate_percent",
+        "quote": "annual rate of Two and 79/100 per centum (2.79%)"
+      },
+      {
+        "field": "maturity_date",
+        "quote": "due and payable on May 1, 2055"
+      },
+      {
+        "field": "collateral_description",
+        "quote": "Friendship Haven\nHealthcare and Rehabilitation Center"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"borrower_name\": \"CHP FRIENDSWOOD SNF, LLC\",\n  \"lender_name\": \"ORIX REAL ESTATE CAPITAL, LLC\",\n  \"agreement_date\": \"2020-04-01\",\n  \"principal_amount\": 11863400.00,\n  \"interest_rate_type\": \"fixed\",\n  \"fixed_rate_percent\": 2.79,\n  \"floating_index\": null,\n  \"spread_percent\": null,\n  \"maturity_date\": \"2055-05-01\",\n  \"collateral_description\": \"Friendship Haven Healthcare and Rehabilitation Center\",\n  \"evidence\": [\n    {\n      \"field\": \"borrower_name\",\n      \"quote\": \"CHP FRIENDSWOOD SNF, LLC\"\n    },\n    {\n      \"field\": \"lender_name\",\n      \"quote\": \"ORIX REAL ESTATE CAPITAL, LLC\"\n    },\n    {\n      \"field\": \"agreement_date\",\n      \"quote\": \"US $ 11,863,400.00 | April 1, 2020\"\n    },\n    {\n      \"field\": \"principal_amount\",\n      \"quote\": \"US $ 11,863,400.00\"\n    },\n    {\n      \"field\": \"fixed_rate_percent\",\n      \"quote\": \"annual rate of Two and 79/100 per centum (2.79%)\"\n    },\n    {\n      \"field\": \"maturity_date\",\n      \"quote\": \"due and payable on May 1, 2055\"\n    },\n    {\n      \"field\": \"collateral_description\",\n      \"quote\": \"Friendship Haven\\nHealthcare and Rehabilitation Center\"\n    }\n  ]\n}"
+}

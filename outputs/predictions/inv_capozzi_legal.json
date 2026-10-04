@@ -1,0 +1,71 @@
+{
+  "doc_id": "inv_capozzi_legal",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "vendor_name": "Capozzi & Associates, P. C.",
+    "invoice_number": "10249",
+    "invoice_date": "2000-04-18",
+    "due_date": null,
+    "bill_to": "Integrated Health Services",
+    "currency": "USD",
+    "subtotal": 165.0,
+    "tax": null,
+    "other_charges": null,
+    "total": 165.0,
+    "amount_due": 165.0,
+    "line_items": [
+      {
+        "description": "Analysis of OLC produced discovery",
+        "quantity": 0.6,
+        "unit_price": 125.0,
+        "amount": 75.0
+      },
+      {
+        "description": "Office conference re computation of impact of cost-based settlement on case-mix rates",
+        "quantity": 0.5,
+        "unit_price": 150.0,
+        "amount": 75.0
+      },
+      {
+        "description": "Office conference re computation of impact of cost-based settlement on case-mix rates",
+        "quantity": 0.1,
+        "unit_price": 150.0,
+        "amount": 15.0
+      }
+    ],
+    "evidence": [
+      {
+        "field": "vendor_name",
+        "quote": "Capozzi & Associates, P. C."
+      },
+      {
+        "field": "invoice_number",
+        "quote": "Inv #: 10249"
+      },
+      {
+        "field": "invoice_date",
+        "quote": "April 18, 2000"
+      },
+      {
+        "field": "bill_to",
+        "quote": "Integrated Health Services"
+      },
+      {
+        "field": "subtotal",
+        "quote": "Totals 1.20 $165.00"
+      },
+      {
+        "field": "total",
+        "quote": "Total Fees & Disbursements\n$165.00i"
+      },
+      {
+        "field": "amount_due",
+        "quote": "Total Fees & Disbursements\n$165.00i"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"vendor_name\": \"Capozzi & Associates, P. C.\",\n  \"invoice_number\": \"10249\",\n  \"invoice_date\": \"2000-04-18\",\n  \"due_date\": null,\n  \"bill_to\": \"Integrated Health Services\",\n  \"currency\": \"USD\",\n  \"subtotal\": 165.00,\n  \"tax\": null,\n  \"other_charges\": null,\n  \"total\": 165.00,\n  \"amount_due\": 165.00,\n  \"line_items\": [\n    {\n      \"description\": \"Analysis of OLC produced discovery\",\n      \"quantity\": 0.60,\n      \"unit_price\": 125.0,\n      \"amount\": 75.00\n    },\n    {\n      \"description\": \"Office conference re computation of impact of cost-based settlement on case-mix rates\",\n      \"quantity\": 0.50,\n      \"unit_price\": 150.0,\n      \"amount\": 75.00\n    },\n    {\n      \"description\": \"Office conference re computation of impact of cost-based settlement on case-mix rates\",\n      \"quantity\": 0.10,\n      \"unit_price\": 150.0,\n      \"amount\": 15.00\n    }\n  ],\n  \"evidence\": [\n    {\n      \"field\": \"vendor_name\",\n      \"quote\": \"Capozzi & Associates, P. C.\"\n    },\n    {\n      \"field\": \"invoice_number\",\n      \"quote\": \"Inv #: 10249\"\n    },\n    {\n      \"field\": \"invoice_date\",\n      \"quote\": \"April 18, 2000\"\n    },\n    {\n      \"field\": \"bill_to\",\n      \"quote\": \"Integrated Health Services\"\n    },\n    {\n      \"field\": \"subtotal\",\n      \"quote\": \"Totals 1.20 $165.00\"\n    },\n    {\n      \"field\": \"total\",\n      \"quote\": \"Total Fees & Disbursements\\n$165.00i\"\n    },\n    {\n      \"field\": \"amount_due\",\n      \"quote\": \"Total Fees & Disbursements\\n$165.00i\"\n    }\n  ]\n}"
+}

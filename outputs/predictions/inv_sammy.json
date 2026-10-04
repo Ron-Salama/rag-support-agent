@@ -1,0 +1,73 @@
+{
+  "doc_id": "inv_sammy",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "vendor_name": "Sammy Maystone",
+    "invoice_number": "invoice_number_1",
+    "invoice_date": "2022-01-01",
+    "due_date": "2022-01-31",
+    "bill_to": "Taylor Riddel",
+    "currency": "USD",
+    "subtotal": 127.5,
+    "tax": 0.0,
+    "other_charges": null,
+    "total": 127.5,
+    "amount_due": 127.5,
+    "line_items": [
+      {
+        "description": "Service A",
+        "quantity": 12.0,
+        "unit_price": 10.0,
+        "amount": 120.0
+      },
+      {
+        "description": "Service B",
+        "quantity": 5.0,
+        "unit_price": 1.5,
+        "amount": 7.5
+      }
+    ],
+    "evidence": [
+      {
+        "field": "vendor_name",
+        "quote": "Sammy Maystone"
+      },
+      {
+        "field": "invoice_number",
+        "quote": "# invoice_number_1"
+      },
+      {
+        "field": "invoice_date",
+        "quote": "Date: Jan 1, 2022"
+      },
+      {
+        "field": "due_date",
+        "quote": "Due Date: Jan 31, 2022"
+      },
+      {
+        "field": "bill_to",
+        "quote": "Taylor Riddel"
+      },
+      {
+        "field": "subtotal",
+        "quote": "Subtotal: $127.50"
+      },
+      {
+        "field": "tax",
+        "quote": "Tax (0%): $0.00"
+      },
+      {
+        "field": "total",
+        "quote": "Total: $127.50"
+      },
+      {
+        "field": "amount_due",
+        "quote": "Balance Due: $127.50"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"vendor_name\": \"Sammy Maystone\",\n  \"invoice_number\": \"invoice_number_1\",\n  \"invoice_date\": \"2022-01-01\",\n  \"due_date\": \"2022-01-31\",\n  \"bill_to\": \"Taylor Riddel\",\n  \"currency\": \"USD\",\n  \"subtotal\": 127.50,\n  \"tax\": 0.00,\n  \"other_charges\": null,\n  \"total\": 127.50,\n  \"amount_due\": 127.50,\n  \"line_items\": [\n    {\n      \"description\": \"Service A\",\n      \"quantity\": 12.0,\n      \"unit_price\": 10.00,\n      \"amount\": 120.00\n    },\n    {\n      \"description\": \"Service B\",\n      \"quantity\": 5.0,\n      \"unit_price\": 1.50,\n      \"amount\": 7.50\n    }\n  ],\n  \"evidence\": [\n    {\n      \"field\": \"vendor_name\",\n      \"quote\": \"Sammy Maystone\"\n    },\n    {\n      \"field\": \"invoice_number\",\n      \"quote\": \"# invoice_number_1\"\n    },\n    {\n      \"field\": \"invoice_date\",\n      \"quote\": \"Date: Jan 1, 2022\"\n    },\n    {\n      \"field\": \"due_date\",\n      \"quote\": \"Due Date: Jan 31, 2022\"\n    },\n    {\n      \"field\": \"bill_to\",\n      \"quote\": \"Taylor Riddel\"\n    },\n    {\n      \"field\": \"subtotal\",\n      \"quote\": \"Subtotal: $127.50\"\n    },\n    {\n      \"field\": \"tax\",\n      \"quote\": \"Tax (0%): $0.00\"\n    },\n    {\n      \"field\": \"total\",\n      \"quote\": \"Total: $127.50\"\n    },\n    {\n      \"field\": \"amount_due\",\n      \"quote\": \"Balance Due: $127.50\"\n    }\n  ]\n}"
+}

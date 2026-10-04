@@ -1,0 +1,52 @@
+{
+  "doc_id": "fs_sfr_fy2025",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "company_name": "Strawberry Fields REIT, Inc.",
+    "period_end_date": "2025-12-31",
+    "period_months": 12,
+    "units": "thousands",
+    "total_revenue": 154999.0,
+    "net_income": 33306.0,
+    "ffo": 79567.0,
+    "total_assets": 885225.0,
+    "evidence": [
+      {
+        "field": "company_name",
+        "quote": "Strawberry Fields REIT, Inc. (NYSE AMERICAN:STRW)"
+      },
+      {
+        "field": "period_end_date",
+        "quote": "Year Ended December 31,\n2025"
+      },
+      {
+        "field": "period_months",
+        "quote": "Year Ended December 31,\n2025"
+      },
+      {
+        "field": "units",
+        "quote": "(Amounts in $000\u2019s, except share data)"
+      },
+      {
+        "field": "total_revenue",
+        "quote": "Rental revenues | $ | 154,999"
+      },
+      {
+        "field": "net_income",
+        "quote": "Net income | $ | 33,306"
+      },
+      {
+        "field": "ffo",
+        "quote": "Funds from Operations | $ | 79,567"
+      },
+      {
+        "field": "total_assets",
+        "quote": "Total Assets | $ | 885,225"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"company_name\": \"Strawberry Fields REIT, Inc.\",\n  \"period_end_date\": \"2025-12-31\",\n  \"period_months\": 12,\n  \"units\": \"thousands\",\n  \"total_revenue\": 154999,\n  \"net_income\": 33306,\n  \"ffo\": 79567,\n  \"total_assets\": 885225,\n  \"evidence\": [\n    {\n      \"field\": \"company_name\",\n      \"quote\": \"Strawberry Fields REIT, Inc. (NYSE AMERICAN:STRW)\"\n    },\n    {\n      \"field\": \"period_end_date\",\n      \"quote\": \"Year Ended December 31,\\n2025\"\n    },\n    {\n      \"field\": \"period_months\",\n      \"quote\": \"Year Ended December 31,\\n2025\"\n    },\n    {\n      \"field\": \"units\",\n      \"quote\": \"(Amounts in $000\u2019s, except share data)\"\n    },\n    {\n      \"field\": \"total_revenue\",\n      \"quote\": \"Rental revenues | $ | 154,999\"\n    },\n    {\n      \"field\": \"net_income\",\n      \"quote\": \"Net income | $ | 33,306\"\n    },\n    {\n      \"field\": \"ffo\",\n      \"quote\": \"Funds from Operations | $ | 79,567\"\n    },\n    {\n      \"field\": \"total_assets\",\n      \"quote\": \"Total Assets | $ | 885,225\"\n    }\n  ]\n}"
+}

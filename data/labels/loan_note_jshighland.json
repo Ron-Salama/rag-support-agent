@@ -1,0 +1,15 @@
+{
+  "_doc_type": "loan_agreement",
+  "_file": "loan_note_jshighland.htm",
+  "_pages": "",
+  "_notes": "",
+  "borrower_name": "JS HIGHLAND HOLDINGS LLC",
+  "lender_name": "ADCARE HEALTH SYSTEMS, INC",
+  "agreement_date": "2016-09-30",
+  "principal_amount": 3000000.00,
+  "interest_rate_type": "fixed",
+  "fixed_rate_percent": 10,
+  "floating_index": null,
+  "spread_percent": null,
+  "maturity_date": "2022-03-31"
+}

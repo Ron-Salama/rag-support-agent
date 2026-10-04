@@ -1,0 +1,14 @@
+{
+  "_doc_type": "financial_statement",
+  "_file": "fs_sabra_q2_2026.htm",
+  "_pages": "",
+  "_notes": "",
+  "company_name": "Sabra Health Care REIT, Inc.",
+  "period_end_date": "2026-06-30",
+  "period_months": 3,
+  "units": "thousands",
+  "total_revenue": 235866,
+  "net_income": -25202,
+  "ffo": -5185,
+  "total_assets": 5512610
+}

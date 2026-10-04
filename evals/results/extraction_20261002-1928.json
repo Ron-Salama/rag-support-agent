@@ -1,0 +1,1075 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "field_accuracy": 0.9541984732824428,
+  "counts": {
+    "correct": 108,
+    "true_null": 17,
+    "false_fill": 1,
+    "wrong": 5
+  },
+  "statuses": {
+    "ok": 14,
+    "needs_review": 1
+  },
+  "by_type": {
+    "invoice": {
+      "correct": 29,
+      "true_null": 5,
+      "false_fill": 1,
+      "wrong": 1
+    },
+    "financial_statement": {
+      "correct": 29,
+      "wrong": 2,
+      "true_null": 1
+    },
+    "loan_agreement": {
+      "correct": 26,
+      "true_null": 10
+    },
+    "appraisal": {
+      "wrong": 2,
+      "correct": 24,
+      "true_null": 1
+    }
+  },
+  "by_field": {
+    "invoice.vendor_name": {
+      "correct": 4
+    },
+    "invoice.invoice_number": {
+      "correct": 4
+    },
+    "invoice.invoice_date": {
+      "correct": 4
+    },
+    "invoice.due_date": {
+      "correct": 2,
+      "true_null": 2
+    },
+    "invoice.bill_to": {
+      "correct": 3,
+      "wrong": 1
+    },
+    "invoice.subtotal": {
+      "correct": 4
+    },
+    "invoice.tax": {
+      "correct": 2,
+      "false_fill": 1,
+      "true_null": 1
+    },
+    "invoice.total": {
+      "correct": 4
+    },
+    "invoice.amount_due": {
+      "correct": 2,
+      "true_null": 2
+    },
+    "financial_statement.company_name": {
+      "correct": 4
+    },
+    "financial_statement.period_end_date": {
+      "correct": 4
+    },
+    "financial_statement.period_months": {
+      "correct": 4
+    },
+    "financial_statement.units": {
+      "correct": 4
+    },
+    "financial_statement.total_revenue": {
+      "correct": 4
+    },
+    "financial_statement.net_income": {
+      "correct": 3,
+      "wrong": 1
+    },
+    "financial_statement.ffo": {
+      "wrong": 1,
+      "correct": 3
+    },
+    "financial_statement.total_assets": {
+      "correct": 3,
+      "true_null": 1
+    },
+    "loan_agreement.borrower_name": {
+      "correct": 4
+    },
+    "loan_agreement.lender_name": {
+      "correct": 4
+    },
+    "loan_agreement.agreement_date": {
+      "correct": 4
+    },
+    "loan_agreement.principal_amount": {
+      "correct": 4
+    },
+    "loan_agreement.interest_rate_type": {
+      "correct": 4
+    },
+    "loan_agreement.fixed_rate_percent": {
+      "correct": 3,
+      "true_null": 1
+    },
+    "loan_agreement.floating_index": {
+      "true_null": 4
+    },
+    "loan_agreement.spread_percent": {
+      "true_null": 4
+    },
+    "loan_agreement.maturity_date": {
+      "correct": 3,
+      "true_null": 1
+    },
+    "appraisal.property_address": {
+      "wrong": 1,
+      "correct": 2
+    },
+    "appraisal.property_type": {
+      "correct": 2,
+      "wrong": 1
+    },
+    "appraisal.as_is_market_value": {
+      "correct": 3
+    },
+    "appraisal.effective_date": {
+      "correct": 3
+    },
+    "appraisal.appraiser_firm": {
+      "correct": 3
+    },
+    "appraisal.building_area_sq_ft": {
+      "correct": 3
+    },
+    "appraisal.units_or_beds": {
+      "correct": 2,
+      "true_null": 1
+    },
+    "appraisal.cap_rate_percent": {
+      "correct": 3
+    },
+    "appraisal.net_operating_income": {
+      "correct": 3
+    }
+  },
+  "details": [
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "vendor_name",
+      "label": "CONTOSO LTD",
+      "pred": "CONTOSO LTD.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "invoice_number",
+      "label": "INV-100",
+      "pred": "INV-100",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "invoice_date",
+      "label": "2019-11-15",
+      "pred": "2019-11-15",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "due_date",
+      "label": "2019-12-15",
+      "pred": "2019-12-15",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "bill_to",
+      "label": "MICROSOFT CORPORATION",
+      "pred": "MICROSOFT CORPORATION",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "subtotal",
+      "label": 100,
+      "pred": 100.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "tax",
+      "label": 10,
+      "pred": 10.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "total",
+      "label": 110,
+      "pred": 110.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_100",
+      "field": "amount_due",
+      "label": 610,
+      "pred": 610.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "vendor_name",
+      "label": "Contoso, Ltd",
+      "pred": "Contoso, Ltd.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "invoice_number",
+      "label": "9876",
+      "pred": "9876",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "invoice_date",
+      "label": "2020-09-10",
+      "pred": "2020-09-10",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "due_date",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "bill_to",
+      "label": "Wingtip Toys",
+      "pred": "Wingtip Toys",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "subtotal",
+      "label": 10375,
+      "pred": 10375.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "tax",
+      "label": null,
+      "pred": 311.25,
+      "outcome": "false_fill"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "total",
+      "label": 10686.25,
+      "pred": 10686.25,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_contoso_stmt6",
+      "field": "amount_due",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "vendor_name",
+      "label": "Sammy Maystone",
+      "pred": "Sammy Maystone",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "invoice_number",
+      "label": "invoice_number_1",
+      "pred": "invoice_number_1",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "invoice_date",
+      "label": "2022-01-01",
+      "pred": "2022-01-01",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "due_date",
+      "label": "2022-01-31",
+      "pred": "2022-01-31",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "bill_to",
+      "label": "Taylor Riddel",
+      "pred": "Taylor's Store",
+      "outcome": "wrong"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "subtotal",
+      "label": 127.5,
+      "pred": 127.5,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "tax",
+      "label": 0,
+      "pred": 0.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "total",
+      "label": 127.5,
+      "pred": 127.5,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_sammy",
+      "field": "amount_due",
+      "label": 127.5,
+      "pred": 127.5,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "vendor_name",
+      "label": "Capozzi & Associates, P. C",
+      "pred": "Capozzi & Associates, P. C.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "invoice_number",
+      "label": "10249",
+      "pred": "10249",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "invoice_date",
+      "label": "2000-04-18",
+      "pred": "2000-04-18",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "due_date",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "bill_to",
+      "label": "Integrated Health Services",
+      "pred": "Integrated Health Services",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "subtotal",
+      "label": 165,
+      "pred": 165.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "tax",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "total",
+      "label": 165,
+      "pred": 165.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "inv_capozzi_legal",
+      "field": "amount_due",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "company_name",
+      "label": "Omega Healthcare Investors, Inc.",
+      "pred": "Omega Healthcare Investors, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "period_end_date",
+      "label": "2026-06-30",
+      "pred": "2026-06-30",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "period_months",
+      "label": 3,
+      "pred": 3,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "units",
+      "label": "thousands",
+      "pred": "thousands",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "total_revenue",
+      "label": 328246,
+      "pred": 328246.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "net_income",
+      "label": 362823,
+      "pred": 362823.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "ffo",
+      "label": 223963,
+      "pred": 261357.0,
+      "outcome": "wrong"
+    },
+    {
+      "doc_id": "fs_omega_q2_2026",
+      "field": "total_assets",
+      "label": 10014761,
+      "pred": 10014761.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "company_name",
+      "label": "Sabra Health Care REIT, Inc.",
+      "pred": "Sabra Health Care REIT, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "period_end_date",
+      "label": "2026-06-30",
+      "pred": "2026-06-30",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "period_months",
+      "label": 3,
+      "pred": 3,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "units",
+      "label": "thousands",
+      "pred": "thousands",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "total_revenue",
+      "label": 235866,
+      "pred": 235866.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "net_income",
+      "label": -25202,
+      "pred": -25202.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "ffo",
+      "label": -5185,
+      "pred": -5185.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sabra_q2_2026",
+      "field": "total_assets",
+      "label": 5512610,
+      "pred": 5512610.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "company_name",
+      "label": "National Health Investors, Inc.",
+      "pred": "National Health Investors, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "period_end_date",
+      "label": "2026-06-30",
+      "pred": "2026-06-30",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "period_months",
+      "label": 3,
+      "pred": 3,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "units",
+      "label": "thousands",
+      "pred": "thousands",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "total_revenue",
+      "label": 121319,
+      "pred": 121319.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "net_income",
+      "label": 55576,
+      "pred": 55576.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "ffo",
+      "label": 57784,
+      "pred": 57784.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_nhi_q2_2026",
+      "field": "total_assets",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "company_name",
+      "label": "Strawberry Fields REIT, Inc.",
+      "pred": "Strawberry Fields REIT, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "period_end_date",
+      "label": "2025-12-31",
+      "pred": "2025-12-31",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "period_months",
+      "label": 12,
+      "pred": 12,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "units",
+      "label": "thousands",
+      "pred": "thousands",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "total_revenue",
+      "label": 154999,
+      "pred": 154999.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "net_income",
+      "label": 7575,
+      "pred": 33306.0,
+      "outcome": "wrong"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "ffo",
+      "label": 79567,
+      "pred": 79567.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "fs_sfr_fy2025",
+      "field": "total_assets",
+      "label": 885225,
+      "pred": 885225.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "borrower_name",
+      "label": "Woodland Manor Property Holdings, LLC",
+      "pred": "Woodland Manor Property Holdings, LLC",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "lender_name",
+      "label": "NEWPOINT REAL ESTATE CAPITAL LLC",
+      "pred": "NEWPOINT REAL ESTATE CAPITAL LLC",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "agreement_date",
+      "label": "2022-10-01",
+      "pred": "2022-10-01",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "principal_amount",
+      "label": 4986800.0,
+      "pred": 4986800.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "interest_rate_type",
+      "label": "fixed",
+      "pred": "fixed",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "fixed_rate_percent",
+      "label": 3.97,
+      "pred": 3.97,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "floating_index",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "spread_percent",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_hud_northwood",
+      "field": "maturity_date",
+      "label": "2052-11-01",
+      "pred": "2052-11-01",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "borrower_name",
+      "label": "CHP FRIENDSWOOD SNF, LLC",
+      "pred": "CHP FRIENDSWOOD SNF, LLC",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "lender_name",
+      "label": "ORIX REAL ESTATE CAPITAL, LLC",
+      "pred": "ORIX REAL ESTATE CAPITAL, LLC",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "agreement_date",
+      "label": "2020-04-01",
+      "pred": "2020-04-01",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "principal_amount",
+      "label": 11863400.0,
+      "pred": 11863400.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "interest_rate_type",
+      "label": "fixed",
+      "pred": "fixed",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "fixed_rate_percent",
+      "label": 2.79,
+      "pred": 2.79,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "floating_index",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "spread_percent",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_hud_friendship",
+      "field": "maturity_date",
+      "label": "2055-05-01",
+      "pred": "2055-05-01",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "borrower_name",
+      "label": "JS HIGHLAND HOLDINGS LLC",
+      "pred": "JS HIGHLAND HOLDINGS LLC",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "lender_name",
+      "label": "ADCARE HEALTH SYSTEMS, INC",
+      "pred": "ADCARE HEALTH SYSTEMS, INC.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "agreement_date",
+      "label": "2016-09-30",
+      "pred": "2016-09-30",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "principal_amount",
+      "label": 3000000.0,
+      "pred": 3000000.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "interest_rate_type",
+      "label": "fixed",
+      "pred": "fixed",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "fixed_rate_percent",
+      "label": 10,
+      "pred": 10.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "floating_index",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "spread_percent",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_note_jshighland",
+      "field": "maturity_date",
+      "label": "2022-03-31",
+      "pred": "2022-03-31",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "borrower_name",
+      "label": "STRAWBERRY FIELDS REALTY LP",
+      "pred": "STRAWBERRY FIELDS REALTY LP",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "lender_name",
+      "label": "POPULAR BANK",
+      "pred": "POPULAR BANK",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "agreement_date",
+      "label": "2026-06-18",
+      "pred": "2026-06-18",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "principal_amount",
+      "label": 100000000,
+      "pred": 100000000.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "interest_rate_type",
+      "label": "unknown",
+      "pred": "unknown",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "fixed_rate_percent",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "floating_index",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "spread_percent",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "loan_term_sfr_2026",
+      "field": "maturity_date",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "property_address",
+      "label": "1228 Rossmoor Parkway , Walnut Creek , Contra Costa County , California 94595",
+      "pred": "1228 Rossmoor Parkway, Walnut Creek, CA 94595",
+      "outcome": "wrong"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "property_type",
+      "label": "assisted_living",
+      "pred": "assisted_living",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "as_is_market_value",
+      "label": 17000000,
+      "pred": 17000000.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "effective_date",
+      "label": "2003-10-07",
+      "pred": "2003-10-07",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "appraiser_firm",
+      "label": "Cushman & Wakefield of Oregon, Inc.",
+      "pred": "Cushman & Wakefield of Oregon, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "building_area_sq_ft",
+      "label": 97818,
+      "pred": 97818.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "units_or_beds",
+      "label": 125,
+      "pred": 125,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "cap_rate_percent",
+      "label": 11.25,
+      "pred": 11.25,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_valleyview_alf",
+      "field": "net_operating_income",
+      "label": 1939693,
+      "pred": 1939693.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "property_address",
+      "label": "3201 South 23rd Street",
+      "pred": "3201 South 23rd Street, Abilene, Texas",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "property_type",
+      "label": "multifamily",
+      "pred": "multifamily",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "as_is_market_value",
+      "label": 5250000,
+      "pred": 5250000.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "effective_date",
+      "label": "2007-01-02",
+      "pred": "2007-01-02",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "appraiser_firm",
+      "label": "Deverick & Associates, Inc.",
+      "pred": "Deverick & Associates, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "building_area_sq_ft",
+      "label": 128054,
+      "pred": 128054.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "units_or_beds",
+      "label": 128,
+      "pred": 128,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "cap_rate_percent",
+      "label": 8.25,
+      "pred": 8.25,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_chimney_mf",
+      "field": "net_operating_income",
+      "label": 435846,
+      "pred": 435846.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "property_address",
+      "label": "605 N Dixie Hwy,Hallandale Beach, FL 33009",
+      "pred": "605 N Dixie Hwy, Hallandale Beach, FL 33009",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "property_type",
+      "label": "other",
+      "pred": "industrial",
+      "outcome": "wrong"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "as_is_market_value",
+      "label": 656000,
+      "pred": 656000.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "effective_date",
+      "label": "2013-10-16",
+      "pred": "2013-10-16",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "appraiser_firm",
+      "label": "L. B. Slater and Company, Inc.",
+      "pred": "L. B. Slater and Company, Inc.",
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "building_area_sq_ft",
+      "label": 5250,
+      "pred": 5250.0,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "units_or_beds",
+      "label": null,
+      "pred": null,
+      "outcome": "true_null"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "cap_rate_percent",
+      "label": 7.5,
+      "pred": 7.5,
+      "outcome": "correct"
+    },
+    {
+      "doc_id": "appr_hallandale_comm",
+      "field": "net_operating_income",
+      "label": 49484,
+      "pred": 49484.0,
+      "outcome": "correct"
+    }
+  ]
+}

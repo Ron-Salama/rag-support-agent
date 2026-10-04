@@ -1,0 +1,67 @@
+{
+  "doc_id": "inv_contoso_100",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "vendor_name": "CONTOSO LTD.",
+    "invoice_number": "INV-100",
+    "invoice_date": "2019-11-15",
+    "due_date": "2019-12-15",
+    "bill_to": "Microsoft Finance",
+    "currency": "USD",
+    "subtotal": 100.0,
+    "tax": 10.0,
+    "other_charges": null,
+    "total": 110.0,
+    "amount_due": 610.0,
+    "line_items": [
+      {
+        "description": "Test for 23 fields",
+        "quantity": 1.0,
+        "unit_price": 100.0,
+        "amount": 100.0
+      }
+    ],
+    "evidence": [
+      {
+        "field": "vendor_name",
+        "quote": "CONTOSO LTD."
+      },
+      {
+        "field": "invoice_number",
+        "quote": "INV-100"
+      },
+      {
+        "field": "invoice_date",
+        "quote": "11/15/2019"
+      },
+      {
+        "field": "due_date",
+        "quote": "12/15/2019"
+      },
+      {
+        "field": "bill_to",
+        "quote": "Microsoft Finance"
+      },
+      {
+        "field": "subtotal",
+        "quote": "$100.00"
+      },
+      {
+        "field": "tax",
+        "quote": "$10.00"
+      },
+      {
+        "field": "total",
+        "quote": "$110.00"
+      },
+      {
+        "field": "amount_due",
+        "quote": "$610.00"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"vendor_name\": \"CONTOSO LTD.\",\n  \"invoice_number\": \"INV-100\",\n  \"invoice_date\": \"2019-11-15\",\n  \"due_date\": \"2019-12-15\",\n  \"bill_to\": \"Microsoft Finance\",\n  \"currency\": \"USD\",\n  \"subtotal\": 100.00,\n  \"tax\": 10.00,\n  \"other_charges\": null,\n  \"total\": 110.00,\n  \"amount_due\": 610.00,\n  \"line_items\": [\n    {\n      \"description\": \"Test for 23 fields\",\n      \"quantity\": 1.0,\n      \"unit_price\": 100.00,\n      \"amount\": 100.00\n    }\n  ],\n  \"evidence\": [\n    {\n      \"field\": \"vendor_name\",\n      \"quote\": \"CONTOSO LTD.\"\n    },\n    {\n      \"field\": \"invoice_number\",\n      \"quote\": \"INV-100\"\n    },\n    {\n      \"field\": \"invoice_date\",\n      \"quote\": \"11/15/2019\"\n    },\n    {\n      \"field\": \"due_date\",\n      \"quote\": \"12/15/2019\"\n    },\n    {\n      \"field\": \"bill_to\",\n      \"quote\": \"Microsoft Finance\"\n    },\n    {\n      \"field\": \"subtotal\",\n      \"quote\": \"$100.00\"\n    },\n    {\n      \"field\": \"tax\",\n      \"quote\": \"$10.00\"\n    },\n    {\n      \"field\": \"total\",\n      \"quote\": \"$110.00\"\n    },\n    {\n      \"field\": \"amount_due\",\n      \"quote\": \"$610.00\"\n    }\n  ]\n}"
+}

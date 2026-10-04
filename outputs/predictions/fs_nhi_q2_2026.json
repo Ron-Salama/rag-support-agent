@@ -1,0 +1,48 @@
+{
+  "doc_id": "fs_nhi_q2_2026",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "company_name": "National Health Investors, Inc.",
+    "period_end_date": "2026-06-30",
+    "period_months": 3,
+    "units": "thousands",
+    "total_revenue": 121319.0,
+    "net_income": 55576.0,
+    "ffo": 57784.0,
+    "total_assets": null,
+    "evidence": [
+      {
+        "field": "company_name",
+        "quote": "National Health Investors, Inc."
+      },
+      {
+        "field": "period_end_date",
+        "quote": "Three Months Ended June 30, 2026"
+      },
+      {
+        "field": "period_months",
+        "quote": "Three Months Ended June 30, 2026"
+      },
+      {
+        "field": "units",
+        "quote": "(unaudited and $ in thousands, except per share amounts)"
+      },
+      {
+        "field": "total_revenue",
+        "quote": "Total revenues 121,319"
+      },
+      {
+        "field": "net_income",
+        "quote": "Net income attributable to common stockholders $ 55,576"
+      },
+      {
+        "field": "ffo",
+        "quote": "NAREIT FFO attributable to common stockholders 57,784"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"company_name\": \"National Health Investors, Inc.\",\n  \"period_end_date\": \"2026-06-30\",\n  \"period_months\": 3,\n  \"units\": \"thousands\",\n  \"total_revenue\": 121319,\n  \"net_income\": 55576,\n  \"ffo\": 57784,\n  \"total_assets\": null,\n  \"evidence\": [\n    {\n      \"field\": \"company_name\",\n      \"quote\": \"National Health Investors, Inc.\"\n    },\n    {\n      \"field\": \"period_end_date\",\n      \"quote\": \"Three Months Ended June 30, 2026\"\n    },\n    {\n      \"field\": \"period_months\",\n      \"quote\": \"Three Months Ended June 30, 2026\"\n    },\n    {\n      \"field\": \"units\",\n      \"quote\": \"(unaudited and $ in thousands, except per share amounts)\"\n    },\n    {\n      \"field\": \"total_revenue\",\n      \"quote\": \"Total revenues 121,319\"\n    },\n    {\n      \"field\": \"net_income\",\n      \"quote\": \"Net income attributable to common stockholders $ 55,576\"\n    },\n    {\n      \"field\": \"ffo\",\n      \"quote\": \"NAREIT FFO attributable to common stockholders 57,784\"\n    }\n  ]\n}"
+}

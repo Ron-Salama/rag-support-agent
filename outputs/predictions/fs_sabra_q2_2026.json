@@ -1,0 +1,52 @@
+{
+  "doc_id": "fs_sabra_q2_2026",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "company_name": "Sabra Health Care REIT, Inc.",
+    "period_end_date": "2026-06-30",
+    "period_months": 3,
+    "units": "thousands",
+    "total_revenue": 235866.0,
+    "net_income": -25202.0,
+    "ffo": -5185.0,
+    "total_assets": 5512610.0,
+    "evidence": [
+      {
+        "field": "company_name",
+        "quote": "Sabra Health Care REIT, Inc."
+      },
+      {
+        "field": "period_end_date",
+        "quote": "Three Months Ended June 30, 2026"
+      },
+      {
+        "field": "period_months",
+        "quote": "Three Months Ended June 30,"
+      },
+      {
+        "field": "units",
+        "quote": "(in thousands)"
+      },
+      {
+        "field": "total_revenue",
+        "quote": "Total revenues | 235,866"
+      },
+      {
+        "field": "net_income",
+        "quote": "Net (loss) income attributable to Sabra Health Care REIT, Inc. | $ | (25,202)"
+      },
+      {
+        "field": "ffo",
+        "quote": "FFO attributable to Sabra Health Care REIT, Inc. | $ | (5,185)"
+      },
+      {
+        "field": "total_assets",
+        "quote": "Total assets | $ | 5,512,610"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"company_name\": \"Sabra Health Care REIT, Inc.\",\n  \"period_end_date\": \"2026-06-30\",\n  \"period_months\": 3,\n  \"units\": \"thousands\",\n  \"total_revenue\": 235866,\n  \"net_income\": -25202,\n  \"ffo\": -5185,\n  \"total_assets\": 5512610,\n  \"evidence\": [\n    {\n      \"field\": \"company_name\",\n      \"quote\": \"Sabra Health Care REIT, Inc.\"\n    },\n    {\n      \"field\": \"period_end_date\",\n      \"quote\": \"Three Months Ended June 30, 2026\"\n    },\n    {\n      \"field\": \"period_months\",\n      \"quote\": \"Three Months Ended June 30,\"\n    },\n    {\n      \"field\": \"units\",\n      \"quote\": \"(in thousands)\"\n    },\n    {\n      \"field\": \"total_revenue\",\n      \"quote\": \"Total revenues | 235,866\"\n    },\n    {\n      \"field\": \"net_income\",\n      \"quote\": \"Net (loss) income attributable to Sabra Health Care REIT, Inc. | $ | (25,202)\"\n    },\n    {\n      \"field\": \"ffo\",\n      \"quote\": \"FFO attributable to Sabra Health Care REIT, Inc. | $ | (5,185)\"\n    },\n    {\n      \"field\": \"total_assets\",\n      \"quote\": \"Total assets | $ | 5,512,610\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,82 @@
+# CI = "continuous integration": on every push / pull request, GitHub starts a fresh Linux machine,
+# builds the Docker image from scratch and checks that it works. If someone breaks the build, the
+# commit gets a red X on GitHub instead of the bug being found later by whoever runs the image.
+#
+# Needs NO secrets: nothing here calls the LLM (no GEMINI_API_KEY) and nothing is pushed anywhere -
+# the image is built, tested, and thrown away with the machine. Choices: DECISIONS.md C18.
+name: docker
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["**.md", "docs/**"]   # a docs-only change can't break the image: don't spend CI minutes on it
+  pull_request:
+    paths-ignore: ["**.md", "docs/**"]
+  workflow_dispatch:                     # adds a "Run workflow" button on GitHub's Actions tab
+
+permissions:
+  contents: read                         # this job only reads the code
+
+jobs:
+  build-and-smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v6
+
+      - name: Set up Docker Buildx (Docker's builder, with layer caching)
+        uses: docker/setup-buildx-action@v4
+
+      # Same as `docker build -t rag-support-agent:ci .` on your PC, plus a cache: unchanged steps
+      # (Python packages, the model) are reused from the previous run, so later builds are faster.
+      - name: Build the image (not pushed anywhere)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          load: true          # keep the image on this machine so the next steps can run it
+          push: false
+          tags: rag-support-agent:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # Start the container exactly as a user would, but with NO .env: no API key at all.
+      - name: Smoke test - /health, /documents and an LLM-free /ask
+        run: |
+          docker run -d --name app -p 8000:8000 rag-support-agent:ci
+          python3 scripts/smoke_test.py http://localhost:8000
+
+      # Every offline self-test (fakes, no LLM calls), run INSIDE the image with --network none:
+      # proves the model and the index are really baked in, and checks the three core loops
+      # (ragagent.extract, ragagent.rag.retrieve, ragagent.agent.loop) on every push.
+      # The self-tests print PASS/FAIL lines and end with "N/M passed", so the step fails if any line
+      # starts with FAIL, or if the "all passed" line (N = M) is missing - e.g. the test never ran at all.
+      - name: Offline self-tests inside the image (no network, no API key)
+        run: |
+          status=0
+          for module in ragagent.llm ragagent.extract ragagent.download \
+                        ragagent.rag.chunk ragagent.rag.retrieve ragagent.rag.answer \
+                        ragagent.agent.tools ragagent.agent.loop ragagent.agent.verifier ragagent.agent.orchestrate \
+                        evals.retrieval_eval evals.answer_eval evals.judge evals.judge_agreement evals.score_extraction; do
+            echo "::group::python -m $module --selftest"
+            if ! out=$(docker run --rm --network none rag-support-agent:ci python -m "$module" --selftest 2>&1); then
+              status=1
+            fi
+            echo "$out"
+            echo "::endgroup::"
+            if grep -q '^FAIL' <<< "$out"; then
+              echo "::error::$module has failing self-test cases"
+              status=1
+            fi
+            if ! grep -Eq '^([0-9]+)/\1 passed$' <<< "$out"; then   # \1 = "the same number again"
+              echo "::error::$module did not print an 'all N/N passed' line"
+              status=1
+            fi
+          done
+          exit $status
+
+      - name: Container log and image size
+        if: always()          # also when a step above failed: that is when the log matters most
+        run: |
+          docker logs app || true
+          docker image ls rag-support-agent:ci

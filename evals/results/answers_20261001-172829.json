@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-01 17:28",
+  "command": "python -m evals.answer_eval --ids t01,t04,t06",
+  "mode": "rag",
+  "golden": "golden_draft.jsonl",
+  "partial": true,
+  "stopped_early": null,
+  "answer_model": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-flash-lite",
+  "k": 5,
+  "live_llm_calls": 6,
+  "summary": {
+    "false_refusals": {
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "false_refusals_right_page_retrieved": 0,
+    "correct": {
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "faithful": {
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "citation_right_page": {
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "citation_right_doc": {
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "trap_refusal_accuracy": {
+      "n": 3,
+      "of": 3,
+      "rate": 1.0
+    },
+    "traps_refused_by_system": 3,
+    "flagged_for_human_review": 0,
+    "errors": 0,
+    "judge_errors": 0
+  },
+  "questions": [
+    {
+      "id": "t01",
+      "type": "trap",
+      "question": "What minimum debt service coverage ratio must the borrower maintain under the JS Highland promissory note?",
+      "answer": null,
+      "why_unanswerable": "The note has no financial covenants and states no DSCR. The only 'DCR' in the corpus is a market-financing assumption in the Chimney Square appraisal.",
+      "doc_id": null,
+      "pages": null,
+      "system": {
+        "text": "I could not find the answer to this in the documents.",
+        "refused": true,
+        "why": "the model found no answer in the retrieved sources",
+        "status": null,
+        "error": null,
+        "citations": [],
+        "retrieved": [
+          {
+            "chunk_id": "loan_note_jshighland:p1:c3",
+            "doc_id": "loan_note_jshighland",
+            "page": 1,
+            "score": 0.7138
+          },
+          {
+            "chunk_id": "loan_hud_northwood:p4:c4",
+            "doc_id": "loan_hud_northwood",
+            "page": 4,
+            "score": 0.6847
+          },
+          {
+            "chunk_id": "loan_hud_friendship:p4:c5",
+            "doc_id": "loan_hud_friendship",
+            "page": 4,
+            "score": 0.6847
+          },
+          {
+            "chunk_id": "loan_hud_northwood:p5:c1",
+            "doc_id": "loan_hud_northwood",
+            "page": 5,
+            "score": 0.678
+          },
+          {
+            "chunk_id": "loan_hud_friendship:p5:c1",
+            "doc_id": "loan_hud_friendship",
+            "page": 5,
+            "score": 0.678
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": null,
+        "cited_right_page": null,
+        "retrieved_right_page": null,
+        "correct": true,
+        "faithful": null,
+        "reasoning": null,
+        "judged_by": "code"
+      },
+      "seconds": 14.5,
+      "sources": []
+    },
+    {
+      "id": "t04",
+      "type": "trap",
+      "question": "What late fee does Capozzi & Associates charge on overdue invoices?",
+      "answer": null,
+      "why_unanswerable": "The invoices say payment is due 30 days from the invoice date and disputes must be raised within 15 days; no late fee or interest is stated. (The loan notes have late charges - a tempting wrong source.)",
+      "doc_id": null,
+      "pages": null,
+      "system": {
+        "text": "I could not find the answer to this in the documents.",
+        "refused": true,
+        "why": "the model found no answer in the retrieved sources",
+        "status": null,
+        "error": null,
+        "citations": [],
+        "retrieved": [
+          {
+            "chunk_id": "inv_capozzi_legal:p15:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 15,
+            "score": 0.7238
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p8:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 8,
+            "score": 0.7212
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p13:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 13,
+            "score": 0.721
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p16:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 16,
+            "score": 0.7201
+          },
+          {
+            "chunk_id": "inv_capozzi_legal:p9:c1",
+            "doc_id": "inv_capozzi_legal",
+            "page": 9,
+            "score": 0.719
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": null,
+        "cited_right_page": null,
+        "retrieved_right_page": null,
+        "correct": true,
+        "faithful": null,
+        "reasoning": null,
+        "judged_by": "code"
+      },
+      "seconds": 4.2,
+      "sources": []
+    },
+    {
+      "id": "t06",
+      "type": "trap",
+      "question": "What credit rating does Moody's assign to Sabra Health Care REIT?",
+      "answer": null,
+      "why_unanswerable": "Sabra's release gives no credit rating. Only NHI's release mentions investment-grade ratings (Moody's, S&P, Fitch), and without the grades.",
+      "doc_id": null,
+      "pages": null,
+      "system": {
+        "text": "I could not find the answer to this in the documents.",
+        "refused": true,
+        "why": "the model found no answer in the retrieved sources",
+        "status": null,
+        "error": null,
+        "citations": [],
+        "retrieved": [
+          {
+            "chunk_id": "fs_sabra_q2_2026:p1:c1",
+            "doc_id": "fs_sabra_q2_2026",
+            "page": 1,
+            "score": 0.7492
+          },
+          {
+            "chunk_id": "fs_sabra_q2_2026:p5:c1",
+            "doc_id": "fs_sabra_q2_2026",
+            "page": 5,
+            "score": 0.7402
+          },
+          {
+            "chunk_id": "fs_sabra_q2_2026:p7:c3",
+            "doc_id": "fs_sabra_q2_2026",
+            "page": 7,
+            "score": 0.7329
+          },
+          {
+            "chunk_id": "fs_sabra_q2_2026:p7:c1",
+            "doc_id": "fs_sabra_q2_2026",
+            "page": 7,
+            "score": 0.7295
+          },
+          {
+            "chunk_id": "fs_sabra_q2_2026:p6:c1",
+            "doc_id": "fs_sabra_q2_2026",
+            "page": 6,
+            "score": 0.7195
+          }
+        ]
+      },
+      "grade": {
+        "cited_right_doc": null,
+        "cited_right_page": null,
+        "retrieved_right_page": null,
+        "correct": true,
+        "faithful": null,
+        "reasoning": null,
+        "judged_by": "code"
+      },
+      "seconds": 4.3,
+      "sources": []
+    }
+  ]
+}

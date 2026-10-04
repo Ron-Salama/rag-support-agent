@@ -1,0 +1,15 @@
+﻿inv_contoso_100          ok            attempts=1    2.3s
+inv_contoso_stmt6        ok            attempts=1    4.1s
+inv_sammy                ok            attempts=1    4.3s
+inv_capozzi_legal        ok            attempts=1    5.7s
+fs_omega_q2_2026         needs_review  attempts=3   11.5s  problems: ["evidence quote for 'period_end_date' is not in the document: 'Three Months Ended June 30, 2026'", "evidence quote for 'period_months' is not in the document: 'Three Months Ended June 30, 2026'", "evidence quote for 'total_revenue' is not in the document: 'Total revenues 328,246'", "evidence quote for 'net_income' is not in the document: 'Net income available to common stockholders $ 362,823'", "evidence quote for 'ffo' is not in the document: 'Nareit funds from operations (“Nareit FFO”) $ 223,963'", "evidence quote for 'total_assets' is not in the document: 'Total assets $ 10,014,761'"]
+fs_sabra_q2_2026         ok            attempts=1    4.3s
+fs_nhi_q2_2026           needs_review  attempts=3   12.6s  problems: ["evidence quote for 'period_end_date' is not in the document: 'Three Months Ended June 30, 2026'", "evidence quote for 'total_revenue' is not in the document: 'Total revenues 121,319'", "evidence quote for 'net_income' is not in the document: 'Net income attributable to common stockholders $ 55,576'", "evidence quote for 'ffo' is not in the document: 'NAREIT FFO attributable to common stockholders 57,784'"]
+fs_sfr_fy2025            ok            attempts=1    4.2s
+loan_hud_northwood       ok            attempts=1    4.5s
+loan_hud_friendship      ok            attempts=1    4.3s
+loan_note_jshighland     ok            attempts=1    4.1s
+loan_term_sfr_2026       ok            attempts=1    4.1s
+appr_valleyview_alf      ok            attempts=1    4.6s
+appr_chimney_mf          ok            attempts=1    4.6s
+appr_hallandale_comm     ok            attempts=1    3.9s

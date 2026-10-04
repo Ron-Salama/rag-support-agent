@@ -1,0 +1,15 @@
+{
+  "_doc_type": "loan_agreement",
+  "_file": "loan_hud_friendship.htm",
+  "_pages": "",
+  "_notes": "",
+  "borrower_name": "CHP FRIENDSWOOD SNF, LLC",
+  "lender_name": "ORIX REAL ESTATE CAPITAL, LLC",
+  "agreement_date": "2020-04-01",
+  "principal_amount": 11863400.00,
+  "interest_rate_type": "fixed",
+  "fixed_rate_percent": 2.79,
+  "floating_index": null,
+  "spread_percent": null,
+  "maturity_date": "2055-05-01"
+}

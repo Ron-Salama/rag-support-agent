@@ -1,0 +1,27 @@
+=== Page 1 ===
+Sammy Maystone INVOICE
+smaystone4@fake.com
+# invoice_number_1
+Date: Jan 1, 2022
+Bill To: Ship To:
+Payment Terms: Net 30 days
+Taylor Riddel Taylor's Store
+triddel9@fake.com triddel9@fake.com Due Date: Jan 31, 2022
+PO Number: po_number_123
+Balance Due: $127.50
+Item Quantity Rate Amount
+Service A 12 $10.00 $120.00
+Description: Repair
+Notes: Replaced capacitor
+Parts: 1 x cap_a
+Tax: 0.2%
+Service B 5 $1.50 $7.50
+Description: Cleaning
+Notes: Removed debris from case
+Parts: 2 x shop supplies
+Tax: 0.4%
+Subtotal: $127.50
+Tax (0%): $0.00
+Total: $127.50
+Notes:
+All names are fictitious and in no way represent real people or places.

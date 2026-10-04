@@ -1,0 +1,14 @@
+{
+  "_doc_type": "financial_statement",
+  "_file": "fs_nhi_q2_2026.htm",
+  "_pages": "",
+  "_notes": "",
+  "company_name": "National Health Investors, Inc.",
+  "period_end_date": "2026-06-30",
+  "period_months": 3,
+  "units": "thousands",
+  "total_revenue": 121319,
+  "net_income": 55576,
+  "ffo": 57784,
+  "total_assets": null
+}

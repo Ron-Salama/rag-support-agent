@@ -1,0 +1,50 @@
+{
+  "doc_id": "loan_hud_northwood",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "borrower_name": "Woodland Manor Property Holdings, LLC",
+    "lender_name": "NEWPOINT REAL ESTATE CAPITAL LLC",
+    "agreement_date": "2022-10-01",
+    "principal_amount": 4986800.0,
+    "interest_rate_type": "fixed",
+    "fixed_rate_percent": 3.97,
+    "floating_index": null,
+    "spread_percent": null,
+    "maturity_date": "2052-11-01",
+    "collateral_description": "Northwood Skilled Nursing and Rehabilitation aka Eaglewood Care Center",
+    "evidence": [
+      {
+        "field": "borrower_name",
+        "quote": "Woodland Manor Property Holdings, LLC,"
+      },
+      {
+        "field": "lender_name",
+        "quote": "NEWPOINT REAL ESTATE CAPITAL LLC"
+      },
+      {
+        "field": "agreement_date",
+        "quote": "US $ 4,986,800.00 | October 1, 2022"
+      },
+      {
+        "field": "principal_amount",
+        "quote": "US $ 4,986,800.00"
+      },
+      {
+        "field": "fixed_rate_percent",
+        "quote": "annual rate of three and ninety-seven one-hundredths per centum (3.97%)."
+      },
+      {
+        "field": "maturity_date",
+        "quote": "November 1, 2052"
+      },
+      {
+        "field": "collateral_description",
+        "quote": "Northwood Skilled Nursing and Rehabilitation aka Eaglewood Care Center"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"borrower_name\": \"Woodland Manor Property Holdings, LLC\",\n  \"lender_name\": \"NEWPOINT REAL ESTATE CAPITAL LLC\",\n  \"agreement_date\": \"2022-10-01\",\n  \"principal_amount\": 4986800.00,\n  \"interest_rate_type\": \"fixed\",\n  \"fixed_rate_percent\": 3.97,\n  \"floating_index\": null,\n  \"spread_percent\": null,\n  \"maturity_date\": \"2052-11-01\",\n  \"collateral_description\": \"Northwood Skilled Nursing and Rehabilitation aka Eaglewood Care Center\",\n  \"evidence\": [\n    {\n      \"field\": \"borrower_name\",\n      \"quote\": \"Woodland Manor Property Holdings, LLC,\"\n    },\n    {\n      \"field\": \"lender_name\",\n      \"quote\": \"NEWPOINT REAL ESTATE CAPITAL LLC\"\n    },\n    {\n      \"field\": \"agreement_date\",\n      \"quote\": \"US $ 4,986,800.00 | October 1, 2022\"\n    },\n    {\n      \"field\": \"principal_amount\",\n      \"quote\": \"US $ 4,986,800.00\"\n    },\n    {\n      \"field\": \"fixed_rate_percent\",\n      \"quote\": \"annual rate of three and ninety-seven one-hundredths per centum (3.97%).\"\n    },\n    {\n      \"field\": \"maturity_date\",\n      \"quote\": \"November 1, 2052\"\n    },\n    {\n      \"field\": \"collateral_description\",\n      \"quote\": \"Northwood Skilled Nursing and Rehabilitation aka Eaglewood Care Center\"\n    }\n  ]\n}"
+}

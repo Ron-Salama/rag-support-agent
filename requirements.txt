@@ -1,0 +1,23 @@
+# Install (PowerShell, from the project folder; caches stay on D:):
+#   .\.venv\Scripts\python.exe -m pip install --cache-dir .cache\pip torch --index-url https://download.pytorch.org/whl/cpu
+#   .\.venv\Scripts\python.exe -m pip install --cache-dir .cache\pip -r requirements.txt
+# torch goes first, from the CPU-only index: the default Linux wheel bundles CUDA (several GB) we don't need.
+# Versions below are the ones tested (2026-10-01), loosely pinned to the same major version.
+
+# Part 1 - extraction
+pydantic>=2.13,<3
+python-dotenv>=1.2,<2
+google-genai>=2.25,<3
+ollama>=0.6,<1
+pdfplumber>=0.11,<1
+beautifulsoup4>=4.15,<5
+lxml>=6.1,<7
+
+# Part 2 - RAG + API
+torch>=2.14,<3                     # CPU build, see the install note above
+sentence-transformers>=6.1,<7
+numpy>=2.5,<3
+chromadb>=1.5,<2
+fastapi>=0.142,<1
+uvicorn>=0.54,<1
+httpx>=0.28,<1                     # used by fastapi's TestClient in tests

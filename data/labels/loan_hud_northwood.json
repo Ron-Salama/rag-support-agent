@@ -1,0 +1,15 @@
+{
+  "_doc_type": "loan_agreement",
+  "_file": "loan_hud_northwood.htm",
+  "_pages": "",
+  "_notes": "",
+  "borrower_name": "Woodland Manor Property Holdings, LLC",
+  "lender_name": "NEWPOINT REAL ESTATE CAPITAL LLC",
+  "agreement_date": "2022-10-01",
+  "principal_amount": 4986800.00,
+  "interest_rate_type": "fixed",
+  "fixed_rate_percent": 3.97,
+  "floating_index": null,
+  "spread_percent": null,
+  "maturity_date": "2052-11-01"
+}

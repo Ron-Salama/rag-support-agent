@@ -1,0 +1,50 @@
+{
+  "doc_id": "loan_note_jshighland",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "borrower_name": "JS HIGHLAND HOLDINGS LLC",
+    "lender_name": "ADCARE HEALTH SYSTEMS, INC.",
+    "agreement_date": "2016-09-30",
+    "principal_amount": 3000000.0,
+    "interest_rate_type": "fixed",
+    "fixed_rate_percent": 10.0,
+    "floating_index": null,
+    "spread_percent": null,
+    "maturity_date": "2022-03-31",
+    "collateral_description": null,
+    "evidence": [
+      {
+        "field": "borrower_name",
+        "quote": "JS HIGHLAND HOLDINGS LLC"
+      },
+      {
+        "field": "lender_name",
+        "quote": "ADCARE HEALTH SYSTEMS, INC."
+      },
+      {
+        "field": "agreement_date",
+        "quote": "As of September 30, 2016"
+      },
+      {
+        "field": "principal_amount",
+        "quote": "$3,000,000.00"
+      },
+      {
+        "field": "interest_rate_type",
+        "quote": "simple interest accruing on the unpaid balance of this Note at a rate equal to ten percent (10%) per annum"
+      },
+      {
+        "field": "fixed_rate_percent",
+        "quote": "ten percent (10%) per annum"
+      },
+      {
+        "field": "maturity_date",
+        "quote": "March 31, 2022"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"borrower_name\": \"JS HIGHLAND HOLDINGS LLC\",\n  \"lender_name\": \"ADCARE HEALTH SYSTEMS, INC.\",\n  \"agreement_date\": \"2016-09-30\",\n  \"principal_amount\": 3000000.0,\n  \"interest_rate_type\": \"fixed\",\n  \"fixed_rate_percent\": 10.0,\n  \"floating_index\": null,\n  \"spread_percent\": null,\n  \"maturity_date\": \"2022-03-31\",\n  \"collateral_description\": null,\n  \"evidence\": [\n    {\n      \"field\": \"borrower_name\",\n      \"quote\": \"JS HIGHLAND HOLDINGS LLC\"\n    },\n    {\n      \"field\": \"lender_name\",\n      \"quote\": \"ADCARE HEALTH SYSTEMS, INC.\"\n    },\n    {\n      \"field\": \"agreement_date\",\n      \"quote\": \"As of September 30, 2016\"\n    },\n    {\n      \"field\": \"principal_amount\",\n      \"quote\": \"$3,000,000.00\"\n    },\n    {\n      \"field\": \"interest_rate_type\",\n      \"quote\": \"simple interest accruing on the unpaid balance of this Note at a rate equal to ten percent (10%) per annum\"\n    },\n    {\n      \"field\": \"fixed_rate_percent\",\n      \"quote\": \"ten percent (10%) per annum\"\n    },\n    {\n      \"field\": \"maturity_date\",\n      \"quote\": \"March 31, 2022\"\n    }\n  ]\n}"
+}

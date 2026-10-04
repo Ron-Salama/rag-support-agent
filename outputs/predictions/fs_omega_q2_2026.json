@@ -1,0 +1,52 @@
+{
+  "doc_id": "fs_omega_q2_2026",
+  "model": "gemini-3.5-flash-lite",
+  "status": "ok",
+  "data": {
+    "company_name": "Omega Healthcare Investors, Inc.",
+    "period_end_date": "2026-06-30",
+    "period_months": 3,
+    "units": "thousands",
+    "total_revenue": 328246.0,
+    "net_income": 362823.0,
+    "ffo": 223963.0,
+    "total_assets": 10014761.0,
+    "evidence": [
+      {
+        "field": "company_name",
+        "quote": "OMEGA HEALTHCARE INVESTORS, INC."
+      },
+      {
+        "field": "period_end_date",
+        "quote": "Three Months Ended June 30, 2026"
+      },
+      {
+        "field": "period_months",
+        "quote": "Three Months Ended June 30,"
+      },
+      {
+        "field": "units",
+        "quote": "(in thousands, except per share amounts)"
+      },
+      {
+        "field": "total_revenue",
+        "quote": "Total revenues 328,246"
+      },
+      {
+        "field": "net_income",
+        "quote": "Net income available to common stockholders $ 362,823"
+      },
+      {
+        "field": "ffo",
+        "quote": "Nareit funds from operations (\u201cNareit FFO\u201d) $ 223,963"
+      },
+      {
+        "field": "total_assets",
+        "quote": "Total assets $ 10,014,761"
+      }
+    ]
+  },
+  "problems": [],
+  "attempts": 1,
+  "last_raw": "{\n  \"company_name\": \"Omega Healthcare Investors, Inc.\",\n  \"period_end_date\": \"2026-06-30\",\n  \"period_months\": 3,\n  \"units\": \"thousands\",\n  \"total_revenue\": 328246,\n  \"net_income\": 362823,\n  \"ffo\": 223963,\n  \"total_assets\": 10014761,\n  \"evidence\": [\n    {\n      \"field\": \"company_name\",\n      \"quote\": \"OMEGA HEALTHCARE INVESTORS, INC.\"\n    },\n    {\n      \"field\": \"period_end_date\",\n      \"quote\": \"Three Months Ended June 30, 2026\"\n    },\n    {\n      \"field\": \"period_months\",\n      \"quote\": \"Three Months Ended June 30,\"\n    },\n    {\n      \"field\": \"units\",\n      \"quote\": \"(in thousands, except per share amounts)\"\n    },\n    {\n      \"field\": \"total_revenue\",\n      \"quote\": \"Total revenues 328,246\"\n    },\n    {\n      \"field\": \"net_income\",\n      \"quote\": \"Net income available to common stockholders $ 362,823\"\n    },\n    {\n      \"field\": \"ffo\",\n      \"quote\": \"Nareit funds from operations (\u201cNareit FFO\u201d) $ 223,963\"\n    },\n    {\n      \"field\": \"total_assets\",\n      \"quote\": \"Total assets $ 10,014,761\"\n    }\n  ]\n}"
+}

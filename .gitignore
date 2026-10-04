@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local caches (pip, Hugging Face models) - kept on D:, never committed
+.cache/
+
+# Secrets - your real API key lives only in .env
+.env
+
+# Generated at runtime (rebuilt from data/ by the scripts)
+chroma/
+outputs/review_queue/
+
+# Original third-party documents: not redistributed; `python -m ragagent.download` re-fetches them
+# from the URLs in data/manifest.csv (DECISIONS.md C20). The derived text in data/text/ and
+# data/fulltext/ is committed.
+data/raw/
+
+# Private working notes (kept locally, never published)
+CLAUDE.md
+PLAN.md
+SPEC.md
+RUNBOOK.md

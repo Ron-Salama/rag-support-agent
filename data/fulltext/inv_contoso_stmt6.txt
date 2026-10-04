@@ -1,0 +1,17 @@
+=== Page 1 ===
+Contoso, Ltd. Project Statement
+Date: 9/10/2020
+Receipt # No.: 9876
+Sold To Wingtip Toys
+554 Magnolia Way
+Walnut, WY, 98432
+ID#: 5554443
+Live Delivery: Online Delivery (Livestream): Video Delivery (On Demand):
+Training Date Description Price Discount Line Total
+12/5/2020 Manager Training $3,500 - $3,500
+12/10/2020 Manager Training $3,500 - $3,500
+12/11/2020 Leadership Training $4,500 25% $3,375
+Subtotal $10,375
+Sales Tax 3%
+Total $10,686.25
+Thank you for your business!
