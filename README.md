@@ -2,6 +2,10 @@
 
 [![docker](https://github.com/Ron-Salama/rag-support-agent/actions/workflows/docker.yml/badge.svg)](https://github.com/Ron-Salama/rag-support-agent/actions/workflows/docker.yml)
 
+**Stack:** Python · RAG (embeddings + Chroma vector search) · AI agent with tool calling and a
+verifier · structured outputs (Pydantic) · LLM evals + LLM-as-judge · FastAPI REST API · Gemini /
+Ollama · Docker image built and smoke-tested in GitHub Actions CI · built with Claude Code
+
 Lending and finance workflows run on numbers buried in invoices, financial statements, loan
 agreements and appraisals, and a wrong number that looks right is worse than no number. This project
 reads 15 public financial documents and turns them into **validated structured data**: every value
