@@ -3,7 +3,7 @@
     python -m ragagent.rag.embed      # embed 3 sentences and print their similarities (try it!)
 
 The model (BAAI/bge-small-en-v1.5, ~130 MB) runs locally on the CPU: free, no API, and the
-documents never leave the machine. First use downloads it to .cache/huggingface on D:.
+documents never leave the machine. First use downloads it to .cache/huggingface inside the project folder.
 
 Two details that matter:
   - normalize_embeddings=True makes every vector length 1. Then the dot product of two

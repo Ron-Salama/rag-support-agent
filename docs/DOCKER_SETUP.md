@@ -2,10 +2,11 @@
 
 > **A manual procedure, not a script.** Installing WSL and Docker changes Windows settings, needs an
 > administrator PowerShell and a reboot, so every command here is meant to be run by hand, one at a time.
-> Status 2026-10-01: the `Dockerfile` and the CI workflow are written and checked as far as possible
-> without Docker (see the end of this page), but **the image has not been built on the development PC yet.**
+> Status 2026-10-04: the image is built and tested **in CI only** (first green run 2026-10-04: image
+> 1.96 GB, smoke test 3/3, 153/153 self-test cases inside the image; `DECISIONS.md` C17, C18). It has
+> not been built on the development PC yet, so the steps below are not yet tried end to end.
 
-## 1. What Docker is, in plain words
+## 1. What Docker is
 
 **Docker puts an app in a sealed box that runs the same anywhere.** The box holds a small Linux,
 Python, every package, our code, the data, the embedding model and the built search index. Whoever
@@ -146,8 +147,8 @@ build, but no package or model download); edit only `evals/` and just step 11 re
 ```powershell
 docker images                      # rag-support-agent should be listed, with its SIZE
 ```
-Expected size: roughly 1.5-1.8 GB (research estimate, not measured yet; the measured number belongs
-in DECISIONS.md C17). Most of it is PyTorch, the rest the other packages + the model.
+Expected size: about 1.96 GB (measured in the first CI build, DECISIONS.md C17). Most of it is
+PyTorch, the rest the other packages + the model.
 
 ## 6. Run it
 
@@ -243,8 +244,8 @@ Nothing here proves the image builds - only that its parts are consistent:
   `docker.yml`) passed all 14 modules. Still not a Linux image: package wheels, `useradd` and
   file permissions are only checked by a real build.
 
-The first real proof is your `docker build` + `docker run` + `scripts\smoke_test.py`, or a green
-CI run once the repo is on GitHub.
+The first real build was the green CI run of 2026-10-04 (run 37205328703); a local `docker build` +
+`docker run` + `scripts\smoke_test.py` has not been done yet.
 
 ## 10. The image's design in brief
 

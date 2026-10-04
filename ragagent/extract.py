@@ -243,22 +243,13 @@ def keep_passed_fields(kept: BaseModel, new: BaseModel, to_fix: set[str]) -> Bas
 #   python -m ragagent.extract --selftest
 # ===================================================================================
 def extract_with_retries(llm, doc_type: str, text: str, max_attempts: int = 3) -> Result:
-    """The heart of Part 1.
+    """Extract `doc_type` fields from `text`, validating and retrying up to `max_attempts` LLM calls.
 
-    Loop up to max_attempts times:
-      1. raw = llm.generate_json(SYSTEM, build_prompt(doc_type, text, feedback, to_fix), SCHEMAS[doc_type])
-         (no feedback and nothing to fix on the first try)
-      2. obj = schema.model_validate_json(raw); a ValidationError -> feedback = the error, try again
-      3. on a retry, KEEP what already passed: only the fields in `to_fix` come from the new answer
-         (keep_passed_fields). Re-asking the whole form once turned a correct FFO into a wrong one.
-      4. problems = check_rules(doc_type, obj, text)
-           - none                      -> Result("ok", data, [], attempt, raw)
-           - some, attempts left       -> to_fix = the fields the problems name, feedback = the problems
-    After the last attempt: a valid answer with problems left -> Result("needs_review", ...) (a human
-    decides); never a valid answer -> Result("failed", None, ...). `attempts` = how often we really asked.
-
-    Do NOT catch LLMError here: a bad key or a used-up quota should stop the whole run loudly.
-    Test it with:  python -m ragagent.extract --selftest
+    Returns Result "ok" (schema valid, every check_rules check passed), "needs_review" (a valid answer
+    with problems left after the last attempt) or "failed" (never a valid answer); `attempts` = calls
+    really made. A retry re-asks only the fields the problems name, and code keeps every field that
+    already passed (keep_passed_fields). LLMError is not caught: a bad key or a used-up quota stops the
+    run. DECISIONS.md C3, C4, C22-C24.
     """
     schema = SCHEMAS[doc_type]
     kept, to_fix, problems, feedback, raw = None, set(), [], None, ""

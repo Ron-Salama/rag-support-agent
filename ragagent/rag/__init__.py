@@ -7,6 +7,6 @@
     retrieve.py  question -> the k most similar chunks           (the retrieval core loop)
     answer.py    question -> retrieved chunks -> LLM -> answer with [S1]-style citations, or a refusal
 """
-# Imported first on purpose: config sets HF_HOME (model downloads go to D:, not C:) and that
+# Imported first on purpose: config sets HF_HOME (model downloads go to the project's .cache/) and that
 # must happen BEFORE sentence_transformers / huggingface_hub are imported anywhere.
 from ragagent import config  # noqa: F401

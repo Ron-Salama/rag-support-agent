@@ -17,7 +17,7 @@ This is a small probe (20 questions); the Part 4 golden set should replace it.
 from ragagent.rag.answer import MIN_SCORE
 from ragagent.rag.retrieve import search
 
-ANSWERABLE = [  # each checked by hand: the answer is printed in at least one document
+ANSWERABLE = [  # each checked against the documents: the answer is printed in at least one of them
     "What is the occupancy rate of the apartment complex?",
     "In what year was the apartment complex built?",
     "How many stories do the buildings have?",

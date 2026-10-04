@@ -8,11 +8,39 @@ reads 15 public financial documents and turns them into **validated structured d
 must come with a verbatim quote that code finds in the document and that contains the value, business
 rules check the numbers, and anything doubtful goes to a **human review queue** instead of downstream.
 On the same documents it **answers questions with page-level citations, or refuses**, and runs a
-tool-using **agent whose answer a second model verifies** before anyone sees it. Everything is
-measured against hand-made labels. It runs on a laptop for $0: local embeddings and Chroma, with the
-LLM on the Gemini free tier (cloud) or a local Ollama model, served by FastAPI and packaged for Docker.
+tool-using **agent whose answer a second model verifies** before anyone sees it. Extraction is scored
+against hand labels made blind, retrieval against a small question set drafted by Claude Code; answer
+quality and the agent are not measured yet. It runs on a laptop for $0: local embeddings and Chroma,
+with the LLM on the Gemini free tier (cloud) or a local Ollama model, served by FastAPI and packaged
+for Docker.
 
-## Results
+## Results at a glance
+
+- **Extraction:** 128/131 fields (97.7%) against blind hand labels on 15 documents, 1 false fill out of 18 empty fields (baseline 126/131; one of the two points gained is a grader fix). The fixes were designed on these same 15 documents, and the 2026-10-04 run replayed 11 of them from the LLM disk cache (C26).
+- **Retrieval:** the right page is in the top 5 for 20/24 questions (MRR@10 0.698), on a small question set drafted by Claude Code and checked by script.
+- **Answer quality and the agent:** not measured yet (smoke runs only); the LLM judge has 0 human verdicts to calibrate it.
+- **Packaging:** CI builds the Docker image and runs the smoke test (3/3) and all 153 offline self-test cases inside it; not yet run on a local Docker install.
+
+Details, with the dated result file behind every number: [Results in detail](#results-in-detail).
+
+## How it was built
+
+Built with Claude Code between 2026-09-30 and 2026-10-04. **Claude Code wrote most of the code, the
+tests, the eval scripts and the docs**; both commits on `main` carry a `Co-Authored-By: Claude`
+trailer. My part was the framing, the domain rules, the answer key and the decisions; the evals are
+how the AI's work was checked.
+
+| Who | What |
+|---|---|
+| **Me (Ron Salama)** | Chose the framing: general financial-document AI over a varied mix of public documents. Set the domain rules R1, R2, R4, R5 and R6 in [`DECISIONS.md`](DECISIONS.md); R4 later proved wrong and was reworded (item 4 below). Hand-labeled all 15 documents (131 fields) blind, before any model output existed. Ran the evals and reviewed the results. Made the one-character `_squash` fix for table cells (Claude found the cause, I made the fix). Decided what to publish. |
+| **Claude Code** (first version, 2026-09-30 to 10-02) | The code (extraction, RAG, agent, verifier, API), the offline self-tests, the eval scripts and the LLM-judge prompt, the draft golden questions and the refusal-threshold probe questions, the Dockerfile and CI, the README and `DECISIONS.md`. |
+| **A multi-agent Claude Code workflow** (2026-10-04) | An orchestrator, an implementer, a hiring-manager-style reviewer and a verifier agent: the fixes after the baseline (C22-C25 and the R4 rewording) and their re-run, and the README rewrite. |
+
+The checks on the AI's work: the blind hand labels, the offline self-tests, review passes and CI on
+every push. What they caught is listed under [Where the coding agent got it wrong](#where-the-coding-agent-got-it-wrong).
+The project's working rules for coding agents are in [`CLAUDE.md`](CLAUDE.md).
+
+## Results in detail
 
 Every number here comes from a dated file in [`evals/results/`](evals/results/), named under each table.
 
@@ -37,14 +65,16 @@ the 131 labels are empty.
 - One of the two points gained is a grader fix, not a better pipeline (middle column, item 5 below).
 - The current false fill is new: `inv_capozzi_legal` `amount_due` = 165.00. In 3 re-runs with the cache
   off it was right 2 of 3 times (`extraction_variance_20261004-1532.json`), so it is run-to-run
-  variation. I did not tune the prompt for it, because tuning on the 15 test documents would overfit.
+  variation. The prompt was not tuned for it: tuning on the 15 test documents would overfit.
+- The current run made 6 live LLM calls; the other 11 documents' answers were replayed from the LLM
+  disk cache, because their requests were identical to earlier runs (C26).
 - Text is compared loosely (case, punctuation, "Inc"/"Ltd"; addresses by part). In this run that forgave
   "Ltd" vs "Ltd.", an address that adds the city and state, and one `bill_to` that deserves a stricter
   look (item 4). No number needed the 0.5% numeric tolerance.
 
 ### Retrieval: is the right page in the top k? (no LLM calls)
 
-Measured on a **24-question draft golden set** (+ 8 refusal traps), drafted with AI assistance and
+Measured on a **24-question draft golden set** (+ 8 refusal traps), drafted by Claude Code and
 checked against the source pages by `python -m evals.golden` ([`evals/GOLDEN_README.md`](evals/GOLDEN_README.md)).
 A hit = a retrieved chunk from the expected document AND page; quote@5 = that chunk also contains the
 expected quote. One question = 4.2 points, so this is a coarse first measurement, not a benchmark.
@@ -74,34 +104,42 @@ size is not their fix.
 
 ### Answer quality and the agent: not measured yet
 
-Only smoke runs exist (2-5 questions each, marked `"partial": true` in `evals/results/answers_*.json`).
-They show the pipeline runs end to end; **they are not a result.** The full measurement is
+Only smoke runs of plain RAG exist (2-5 questions each, marked `"partial": true` in
+`evals/results/answers_*.json`); none of the agent. They show the pipeline runs end to end; **they are
+not a result.** Their answers were graded by the LLM judge, which has no human verdicts to calibrate
+it yet (`evals/judge_calibration.csv`: 5 rows, 0 human verdicts). The full measurement is
 `python -m evals.answer_eval` (all 32 questions, about 2 LLM calls each; `--agent` for the agent).
 
-## What went wrong and what I changed
+## What went wrong, how it was caught, what changed
 
 The baseline got 5 fields wrong. Each was traced to a root cause before anything changed (details
 and evidence: [`DECISIONS.md`](DECISIONS.md) C22-C26).
 
 1. **The model invented a tax and "proved" it with a real quote.** `inv_contoso_stmt6` prints only
    "Sales Tax 3%"; the model returned tax = 311.25 (3% of 10,375) with the quote "Sales Tax 3%". The
-   quote existed, so the value passed as `ok`. **Fix:** the value must be printed *inside* its own
-   quote (numbers with commas, `$`, `%`, "million", bracket negatives; dates in common printed forms) (C22).
+   quote existed, so the value passed as `ok`. **Caught by:** the eval against the blind hand labels
+   (the run's only false fill); the coding agent's evidence check only tested that the quote existed.
+   **Fix:** the value must be printed *inside* its own quote (numbers with commas, `$`, `%`,
+   "million", bracket negatives; dates in common printed forms) (C22).
    **After:** tax = null in the scored run and 3/3 re-runs. The invoice now goes to `needs_review`,
    because its sum can't be checked (open decision C5).
 2. **A retry broke a correct field.** In a re-run, a retry asked to fix one date quote, and the model
    also swapped Omega's correct FFO (223,963) for AFFO (261,357): 125/131 (`extraction_20261002-1928.json`).
+   **Caught by:** the eval of that re-run against the hand labels (a field that was right turned wrong).
    **Fix:** a retry re-asks only the failing fields, and code merges back only those
    (`keep_passed_fields`); a self-test proves that a passed field can't change (C24).
 3. **Flattened tables broke the quote check.** Omega and NHI went to review with the right values.
-   Table cells are joined with "|" (fixed first), and the column header "Three Months Ended" / "June 30," /
-   "2026" sits on three lines. A first tolerant matcher ("words in order within 300 characters") was too
-   loose: it accepted "Total revenues 282,506", the prior-year column. **Fix:** words must follow each
-   other as in the text, the only jump allowed is to the first word of a later line, and a number is
-   one word (C23). **After:** Omega and NHI are `ok` on the first attempt.
+   Table cells are joined with "|" (fixed first: Claude found the cause, I made the one-character
+   `_squash` fix), and the column header "Three Months Ended" / "June 30," / "2026" sits on three
+   lines. A first tolerant matcher ("words in order within 300 characters") was too loose: it accepted
+   "Total revenues 282,506", the prior-year column. **Caught by:** the eval (right values, wrong
+   status); the too-loose first matcher by the implementing agent's own adversarial self-test.
+   **Fix:** words must follow each other as in the text, the only jump allowed is to the first word
+   of a later line, and a number is one word (C23). **After:** Omega and NHI are `ok` on the first attempt.
 4. **Layout trap: Bill To and Ship To side by side** (`inv_sammy`). The columns flatten to "Taylor
    Riddel Taylor's Store" on one line, and the rule said "the customer company, never a person". The
    customer is a person, so the model took the Ship To name: the rule was at fault, not the model.
+   **Caught by:** the eval against the hand labels; the cause was my own rule wording (R4).
    **Fix:** `bill_to` = whoever is billed (a person if the customer is one), never the Ship To; the same
    wording in the schema the model reads and in the [labeling guide](data/labels/LABELING_GUIDE.md) (R4).
    **After:** right in the scored run and 3/3 re-runs. **Still open:** after the rewording,
@@ -109,14 +147,32 @@ and evidence: [`DECISIONS.md`](DECISIONS.md) C22-C26).
    name "MICROSOFT CORPORATION" (exactly right in the baseline). The grader's substring rule counts it
    as right, so 128/131 includes one field a strict grader would reject.
 5. **The grader was too strict.** `appr_valleyview_alf` "..., Walnut Creek, CA 94595" was marked wrong
-   against the label "..., Contra Costa County, California 94595". **Fix:** addresses are compared by
-   part (street, city, state, ZIP; CA = California; county ignored), with no fuzzy match: an 85%
-   similarity rule calls "1228 Rossmoor Pkwy" and "1229 Rossmoor Pkwy" the same (C25). **After:**
-   re-grading the baseline's saved predictions changed only that field, 126 to 127.
+   against the label "..., Contra Costa County, California 94595". **Caught by:** the baseline error
+   analysis: the "wrong" field was right. **Fix:** addresses are compared by part (street, city,
+   state, ZIP; CA = California; county ignored), with no fuzzy match: an 85% similarity rule calls
+   "1228 Rossmoor Pkwy" and "1229 Rossmoor Pkwy" the same (C25). **After:** re-grading the
+   baseline's saved predictions changed only that field, 126 to 127.
 
 Still wrong: `fs_sfr_fy2025` `net_income` (the model took plain "Net income" 33,306; the schema asks
 for the "attributable to common stockholders" line, 7,575) and `appr_hallandale_comm` `property_type`
 (an auto-body shop: "industrial" vs the label "other", C21).
+
+### Where the coding agent got it wrong
+
+Mistakes in the code Claude Code wrote, from [`DECISIONS.md`](DECISIONS.md), and what caught each one.
+
+| What went wrong | Caught by | Fix |
+|---|---|---|
+| The evidence check only tested that the quote existed, so a calculated tax "backed" by the real quote "Sales Tax 3%" passed as `ok` (C22) | the extraction eval against the blind hand labels | the value must be printed inside its own quote |
+| The first tolerant quote matcher accepted a number from the next (prior-year) column of a table row (C23) | the implementing agent's own adversarial self-test | jumps only to the first word of a later line, a number is one word; the test case stays |
+| CI failed only on `FAIL` lines, so a self-test that never ran (a usage text printed instead) would have passed (C18) | a Claude Code review pass, 2026-10-01 | a module also fails when its "N/N passed" line is missing |
+| `download.py` sent the SEC identity (name + email) to every site, not only sec.gov (C19) | the same review pass | sec.gov only, other sites get a generic User-Agent; a self-test case was added |
+| With no API key, `/ask` and `/agent` crashed with an HTTP 500 (`ragagent/llm.py`, `ragagent/api.py`) | the same review pass, running the image's files with no `.env` | a 503 "LLM unavailable" that says the key is missing |
+| Two entries in the Claude-drafted golden set had wrong answer keys (a19, a21); a wrong key looks exactly like a retrieval miss (C14) | a Claude Code review pass of the evals | corrected; `python -m evals.golden` checks every quote on its listed pages |
+
+Smaller ones: `chunk.tail` returned the whole text for overlap 0 (`text[-0:]`, C14); the agent's
+verifier and the eval judge read the same model setting, so with `--agent` the judge grades answers
+its own model approved (C15, still open).
 
 ## Architecture
 
@@ -133,7 +189,7 @@ for the "attributable to common stockholders" line, 7,575) and `appr_hallandale_
    question -> [7] gate 1: best similarity >= 0.60 -> LLM -> [8] gate 2: model says "found"
             -> [9] every [S#] citation checked in code -> cited answer, or a refusal
 
- PART 3  AGENT  agent/: hand-written loop over search_docs, get_page, list_documents, extract_fields (max 6 steps)
+ PART 3  AGENT  agent/: custom agent loop (no framework) over search_docs, get_page, list_documents, extract_fields (max 6 steps)
    -> [10] verifier: a second model checks every claim against the tool results; code overrules it
    -> verified | revised (1 retry) | needs_human_review (answer withheld, case queued)
 
@@ -144,7 +200,8 @@ for the "attributable to common stockholders" line, 7,575) and `appr_hallandale_
 ## Quick start
 
 Python 3.13, PowerShell, from the repository root (macOS/Linux: `python3.13 -m venv .venv` and
-`source .venv/bin/activate`, then the same commands).
+`source .venv/bin/activate`, then the same commands, except the self-test loop: its bash version is
+below the block).
 
 **1. Install and check everything: no API key, 0 LLM calls.**
 ```powershell
@@ -164,6 +221,14 @@ python -m evals.golden              # validate the golden set against the docume
 python -m evals.retrieval_eval      # reproduces the retrieval table (writes a new dated file to evals/results/)
 python -m evals.score_extraction    # re-grades the committed predictions: 128/131 (also writes a new file)
 python -m ragagent.rag.retrieve "What late charge applies if a loan payment is late?"   # top-5 chunks + scores
+```
+The self-test loop in bash (macOS/Linux; same 15 modules as CI):
+```bash
+for m in ragagent.llm ragagent.extract ragagent.download ragagent.rag.chunk ragagent.rag.retrieve \
+         ragagent.rag.answer ragagent.agent.tools ragagent.agent.loop ragagent.agent.verifier \
+         ragagent.agent.orchestrate evals.retrieval_eval evals.answer_eval evals.judge \
+         evals.judge_agreement evals.score_extraction; do
+  printf '%-28s %s\n' "$m" "$(python -m "$m" --selftest 2>/dev/null | tail -1)"; done
 ```
 
 **2. Run the API.** For answers, paste a free Gemini API key (Google AI Studio) into `.env`; without
@@ -193,8 +258,9 @@ python scripts/smoke_test.py
 The image holds CPU-only PyTorch, the code, the document text, the embedding model and the built index,
 runs as a non-root user, and needs the internet only for the LLM. **Status:** [CI](.github/workflows/docker.yml)
 builds it on every push, smoke-tests it with no API key and runs all 15 self-test modules inside it with
-the network off. The first run passed on 2026-10-04 (build 6 min, smoke test 3/3, 153/153 self-test cases,
-image 1.96 GB: [run 37205328703](https://github.com/Ron-Salama/rag-support-agent/actions/runs/37205328703)).
+the network off. The first run passed on 2026-10-04 (about 6 min end to end, image build 5.5 min,
+smoke test 3/3, 153/153 self-test cases, image 1.96 GB:
+[run 37205328703](https://github.com/Ron-Salama/rag-support-agent/actions/runs/37205328703)).
 It has not yet been run on a local Docker install. Windows install notes: [`docs/DOCKER_SETUP.md`](docs/DOCKER_SETUP.md).
 
 ## Design decisions
@@ -211,8 +277,9 @@ Every real choice, with the options and the evidence, is in [`DECISIONS.md`](DEC
   0.425-0.569, answerable 0.628-0.820; `python -m evals.refusal_threshold`, re-run 2026-10-04, prints
   only). For a lender, "I don't know" beats an untraceable answer.
 - **Page-bounded chunks** (C6, C14): a chunk never crosses a page, so every citation is one page.
-- **A hand-written agent loop, no framework** (C11, C12): a step limit, tool errors fed back to the
-  model, a verifier on a different model, code checks that overrule it, unverified answers withheld.
+- **A custom agent loop (no framework)** (C11, C12): a step limit, tool errors fed back to the
+  model, a verifier on a different model (with Gemini; the Ollama backend uses one local model for
+  both), code checks that overrule it, unverified answers withheld.
 - **One small LLM interface** (C1): `generate_json` and `chat` with tools, a disk cache, backoff on rate
   limits, a loud stop on a bad key or exhausted quota; swapping providers is one class.
 - **A self-contained image** (C17): model and index built in at build time, the key only at run time.
@@ -223,7 +290,7 @@ Every real choice, with the options and the evidence, is in [`DECISIONS.md`](DEC
 
 | Type | # | Source | Terms |
 |---|---|---|---|
-| Invoices | 4 | 3 sample invoices with fictional companies from open-source repositories (Azure-Samples, invoice2data test corpus); 1 legal-services invoice from a US bankruptcy-court fee application (University of Florida archive) | samples: MIT licence; court exhibit: public record |
+| Invoices | 4 | 3 sample invoices with fictional companies from open-source repositories (Azure-Samples, invoice2data test corpus); 1 legal-services invoice from a US bankruptcy-court fee application (University of Florida archive) | samples: MIT licence ([notices](THIRD_PARTY_NOTICES.md)); court exhibit: public record |
 | Financial statements | 4 | quarterly / annual earnings releases of listed companies (SEC EDGAR, 8-K Exhibit 99.1) | public SEC filings |
 | Loan agreements | 4 | promissory notes and loan agreements filed as SEC EDGAR exhibits | public SEC filings |
 | Appraisals | 3 | 2 appraisal reports filed as SEC EDGAR exhibits; 1 from a US city's public meeting agenda packet | public records |
@@ -235,9 +302,15 @@ demonstration. The original files (`data/raw/`, about 16 MB) are **not committed
 (`data/text/`, `data/fulltext/`: 476 pages, 1,860 chunks) is committed, so the API, the evals and the
 Docker image work without the originals. Hand labels: [`data/labels/`](data/labels/).
 
+**Data notice.** The third-party documents are reproduced as extracted text for non-commercial
+research and demonstration; some carry their authors' own use conditions (the appraisals, for
+example, say that possession of the report does not carry the right of publication). Rights holders
+can open an issue to have a document removed. Licence texts for the MIT-licensed sample invoices:
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
 ## Moving to AWS
 
-A plan, **not built**, based on AWS documentation read in late September 2026. The LLM sits behind one
+A plan, **not built**, researched with Claude Code in late September 2026. The LLM sits behind one
 interface, so the rest of the pipeline would not change.
 
 | Local piece | AWS counterpart |
@@ -248,11 +321,15 @@ interface, so the rest of the pipeline would not change.
 | refusal gates + verifier | **Bedrock Guardrails** contextual grounding check, next to our own checks |
 | `outputs/` + review queue | S3 -> **Snowflake** (raw `VARIANT` table -> dbt models with tests, e.g. line items sum to the total) |
 
+Azure has equivalents for the same pieces, also a plan and not built: Azure OpenAI (chat + tool
+calling), Azure AI Search (vector index), Azure AI Document Intelligence (extraction), and AKS for the
+container CI already builds.
+
 ## Limitations and next steps
 
 - **Small:** 15 documents and 131 labeled fields, and the extraction rules were improved on the same documents they are scored on.
-- **Draft golden set:** 24 + 8 AI-drafted questions, checked by script; hand-written questions and a held-out split come next.
-- **Answer quality not measured yet**, and the LLM judge is not yet calibrated against 30+ human verdicts (`evals.judge_agreement`).
+- **Draft golden set:** 24 + 8 questions drafted by Claude Code, checked by script; hand-written questions and a held-out split come next.
+- **Answer quality not measured yet**, and the LLM judge has 0 of the 30+ human verdicts it needs for calibration (`evals.judge_agreement`).
 - **Free-tier model:** Gemini 3.5 ignores `temperature`, so runs vary (hence the re-runs). The Ollama backend is tested with a fake client only.
 - **Refusals:** on-topic questions no document answers pass the score gate; only gate 2 and the verifier stop them.
 - **Text only:** no OCR for scanned PDFs, and tables are flattened to text (the source of problems 3 and 4).
@@ -263,11 +340,3 @@ Next: the full `answer_eval` (plain and `--agent`) on all 32 questions; hybrid k
 or a reranker for the two zoning/parking misses; deduplicated `/ask` citations by (document, page);
 payment cross-checks in code, such as an invoice's `amount_due` against its `total` plus any printed
 previous balance (R1).
-
-## How it was built
-
-Scoped, hand-labeled and evaluated by the author, and implemented with AI-assisted development
-(Claude Code). The 15 extraction answer keys were labeled by hand, blind to model output, and the
-error analysis above decided what to change; the design decisions and their evidence are in
-[`DECISIONS.md`](DECISIONS.md). Only the draft golden questions were AI-drafted, and a script checks
-them against the documents.

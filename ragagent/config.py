@@ -1,4 +1,4 @@
-"""Paths and settings in one place. Everything stays inside the project folder on D:."""
+"""Paths and settings in one place. Everything, caches included, stays inside the project folder."""
 import os
 from pathlib import Path
 
@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
-# Model downloads (sentence-transformers, later) go to D:, not C:\Users\...\.cache
+# Model downloads (sentence-transformers) go inside the project folder (.cache/), not the user's home cache
 os.environ.setdefault("HF_HOME", str(ROOT / ".cache" / "huggingface"))
 # Windows without Developer Mode can't make symlinks; HF then copies files instead. Harmless, so hide the warning.
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")

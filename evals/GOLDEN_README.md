@@ -6,7 +6,7 @@ answer key for extraction. Every number Part 4 reports is "how well did the syst
 questions", so the numbers are only as good as the questions.
 
 > **`evals/golden_draft.jsonl`** is a draft golden set of **24 answerable questions + 8 refusal
-> traps**, drafted with AI assistance (2026-10-01) and verified against the source text page by
+> traps**, drafted by Claude Code (2026-10-01) and verified against the source text page by
 > page: `python -m evals.golden` checks that every answer's quote is verbatim on its listed pages,
 > and a review corrected two entries (a19, a21; see `DECISIONS.md` C14). It is to be extended with
 > hand-written questions in **`evals/golden.jsonl`**; as soon as that file exists, every eval script

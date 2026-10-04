@@ -1,4 +1,4 @@
-# Install (PowerShell, from the project folder; caches stay on D:):
+# Install (PowerShell, from the project folder; the pip cache stays inside it, in .cache/):
 #   .\.venv\Scripts\python.exe -m pip install --cache-dir .cache\pip torch --index-url https://download.pytorch.org/whl/cpu
 #   .\.venv\Scripts\python.exe -m pip install --cache-dir .cache\pip -r requirements.txt
 # torch goes first, from the CPU-only index: the default Linux wheel bundles CUDA (several GB) we don't need.

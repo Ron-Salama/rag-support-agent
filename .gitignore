@@ -3,7 +3,7 @@
 __pycache__/
 *.pyc
 
-# Local caches (pip, Hugging Face models) - kept on D:, never committed
+# Local caches (pip, Hugging Face models, LLM answers) - inside the project folder, never committed
 .cache/
 
 # Secrets - your real API key lives only in .env
@@ -18,8 +18,8 @@ outputs/review_queue/
 # data/fulltext/ is committed.
 data/raw/
 
-# Private working notes (kept locally, never published)
-CLAUDE.md
+# Local working notes (not part of the repository; CLAUDE.local.md is Claude Code's local memory file)
+CLAUDE.local.md
 PLAN.md
 SPEC.md
 RUNBOOK.md

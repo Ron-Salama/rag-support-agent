@@ -6,7 +6,7 @@
 
 Why this exists: data/raw/ holds other people's files (~16 MB of PDFs and SEC filings). Because
 manifest.csv keeps the source URL of every document, anyone can rebuild data/raw/ with this
-script - so the git repo does not HAVE to carry those files (still open: DECISIONS.md C20).
+script - so the git repo does not carry those files (decided: DECISIONS.md C20, data/raw/ is not committed).
 The text made from them (data/text/, data/fulltext/) is already in the repo; run
 `python -m ragagent.to_text` (and `--full`) only if you want to remake it from fresh downloads.
 

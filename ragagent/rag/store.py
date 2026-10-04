@@ -9,8 +9,8 @@ The numpy copy (chroma/vectors.npy + chroma/chunks.json) holds the same vectors 
 so retrieve.search_bruteforce can do the same search by hand - it shows what a vector
 database actually does, and checks that Chroma gives the same answer.
 
-IMPORTANT: Chroma has a "default embedding function" that would download its own model to
-C:\\Users\\...\\.cache. We never use it: we always pass our own vectors (embed.py) and create /
+IMPORTANT: Chroma has a "default embedding function" that would download its own model to the
+user's home cache (~/.cache). We never use it: we always pass our own vectors (embed.py) and create /
 open the collection with embedding_function=None.
 """
 import json

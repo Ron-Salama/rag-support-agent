@@ -58,29 +58,12 @@ class AgentResult:
 #   python -m ragagent.agent.loop --selftest
 # ===================================================================================
 def run_agent(llm, question: str, tools: dict[str, Tool], max_steps: int = MAX_STEPS) -> AgentResult:
-    """The heart of Part 3 (~25 lines).
+    """Answer `question` by letting the model call `tools` for at most `max_steps` LLM calls.
 
-    messages = [{"role": "user", "content": question}];  specs = [t.spec for t in tools.values()];  steps = []
-    For step = 1 .. max_steps:
-      1. reply = llm.chat(SYSTEM, messages, specs)
-           - if it raises LLMError -> return AgentResult(COULD_NOT_COMPLETE, steps, "llm_error",
-                                                         sources_in(steps), error=str(e))
-      2. no reply.tool_calls -> the model is done:
-           return AgentResult(reply.text (stripped; "" if None), steps, "answered", sources_in(steps))
-      3. messages.append(reply.as_message())        (the model's turn, BEFORE the results that answer it)
-      4. for each call in reply.tool_calls:
-           - tool = tools.get(call.name)
-           - result = tool.fn(**call.args)
-               unknown tool         -> result = {"error": "unknown tool ..."}   (name the real tools)
-               any exception        -> result = {"error": f"{type(e).__name__}: {e}"}
-                                       (wrong/missing arguments raise TypeError - same path)
-           - steps.append({"step": step, "tool": call.name, "args": call.args, "result": result})
-           - messages.append({"role": "tool", "tool_call_id": call.id, "name": call.name,
-                              "content": json.dumps(result, ensure_ascii=False, default=str)})
-    Loop ended without an answer -> return AgentResult(COULD_NOT_COMPLETE, steps, "step_limit", sources_in(steps))
-
-    Never let a tool problem crash the loop: the model reads the error and tries something else.
-    Test it with:  python -m ragagent.agent.loop --selftest
+    Returns an AgentResult whose stopped_reason is "answered" (a reply with no tool calls is the final
+    answer), "step_limit" (COULD_NOT_COMPLETE after max_steps calls) or "llm_error" (an LLMError, with
+    its message in `error`). Unknown tools, bad arguments and tool exceptions never raise: they go back
+    to the model as {"error": ...} results. Every tool call is recorded in `steps`. DECISIONS.md C11.
     """
     messages = [{"role": "user", "content": question}]
     specs = [tool.spec for tool in tools.values()]
