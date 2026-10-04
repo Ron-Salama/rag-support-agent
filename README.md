@@ -2,6 +2,8 @@
 
 [![docker](https://github.com/Ron-Salama/rag-support-agent/actions/workflows/docker.yml/badge.svg)](https://github.com/Ron-Salama/rag-support-agent/actions/workflows/docker.yml)
 
+![A pile of financial documents, a question, the page it was found on, and the checked answer plus an extracted record](docs/hero.svg)
+
 **Stack:** Python · RAG (embeddings + Chroma vector search) · AI agent with tool calling and a
 verifier · structured outputs (Pydantic) · LLM evals + LLM-as-judge · FastAPI REST API · Gemini /
 Ollama · Docker image built and smoke-tested in GitHub Actions CI · built with Claude Code
@@ -182,6 +184,10 @@ verifier and the eval judge read the same model setting, so with `--agent` the j
 its own model approved (C15, still open).
 
 ## Architecture
+
+![How it works: extraction with code safety checks, cited Q&A (RAG), an agent with a verifier, and the evals behind them](docs/architecture.svg)
+
+The same pipeline with file names and the numbered checks:
 
 ```
  data/manifest.csv (15 documents + source URLs) -> to_text.py -> data/text/     (key pages: Part 1)
