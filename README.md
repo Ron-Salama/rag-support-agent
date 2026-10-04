@@ -1,5 +1,7 @@
 # Financial document AI: evidence-checked extraction, cited Q&A and a verified agent
 
+[![docker](https://github.com/Ron-Salama/rag-support-agent/actions/workflows/docker.yml/badge.svg)](https://github.com/Ron-Salama/rag-support-agent/actions/workflows/docker.yml)
+
 Lending and finance workflows run on numbers buried in invoices, financial statements, loan
 agreements and appraisals, and a wrong number that looks right is worse than no number. This project
 reads 15 public financial documents and turns them into **validated structured data**: every value
@@ -189,10 +191,11 @@ docker run --env-file .env -p 8000:8000 rag-support-agent    # the key is passed
 python scripts/smoke_test.py
 ```
 The image holds CPU-only PyTorch, the code, the document text, the embedding model and the built index,
-runs as a non-root user, and needs the internet only for the LLM. **Status:** not yet built on the
-development machine; [CI](.github/workflows/docker.yml) builds it on every push, smoke-tests it with no
-API key and runs the self-tests inside it with the network off, so its first run is the first real
-build. Windows install notes: [`docs/DOCKER_SETUP.md`](docs/DOCKER_SETUP.md).
+runs as a non-root user, and needs the internet only for the LLM. **Status:** [CI](.github/workflows/docker.yml)
+builds it on every push, smoke-tests it with no API key and runs all 15 self-test modules inside it with
+the network off. The first run passed on 2026-10-04 (build 6 min, smoke test 3/3, 153/153 self-test cases,
+image 1.96 GB: [run 37205328703](https://github.com/Ron-Salama/rag-support-agent/actions/runs/37205328703)).
+It has not yet been run on a local Docker install. Windows install notes: [`docs/DOCKER_SETUP.md`](docs/DOCKER_SETUP.md).
 
 ## Design decisions
 
@@ -253,7 +256,7 @@ interface, so the rest of the pipeline would not change.
 - **Free-tier model:** Gemini 3.5 ignores `temperature`, so runs vary (hence the re-runs). The Ollama backend is tested with a fake client only.
 - **Refusals:** on-topic questions no document answers pass the score gate; only gate 2 and the verifier stop them.
 - **Text only:** no OCR for scanned PDFs, and tables are flattened to text (the source of problems 3 and 4).
-- **Docker not verified locally**, and the image size is not measured yet.
+- **Docker:** built and tested in CI only (1.96 GB image, mostly CPU PyTorch); not yet run on a local Docker install.
 - **Not production:** no auth or rate limiting, shared state that is not thread-safe, a review queue that is a folder of JSON files.
 
 Next: the full `answer_eval` (plain and `--agent`) on all 32 questions; hybrid keyword + vector search
