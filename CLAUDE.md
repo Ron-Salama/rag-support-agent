@@ -43,7 +43,7 @@ Eval scripts write a new dated file to `evals/results/`; delete it when the run 
   the Docker image. The key is passed at run time.
 - Documents must be public and non-confidential, each with its source URL in `data/manifest.csv`.
   `data/raw/` is never committed (C20).
-- Caches stay inside the project folder (`.cache/`, set in `ragagent/config.py`).
+- Hugging Face and LLM caches stay inside the project folder (`.cache/`, set in `ragagent/config.py`).
 
 ## Conventions
 - **Evidence over trust:** an extracted value needs a verbatim quote that code finds in the text and

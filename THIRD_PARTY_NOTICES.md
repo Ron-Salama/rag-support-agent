@@ -14,7 +14,7 @@ non-commercial research and demonstration. Some carry their authors' own use con
 appraisals, for example, state that possession of the report does not carry the right of
 publication. Rights holders can open an issue on this repository to have a document removed.
 
-Two of the sample invoices come from open-source repositories under the MIT License. Their licence
+Three of the sample invoices come from two open-source repositories under the MIT License. Their licence
 texts follow.
 
 ## Azure-Samples/cognitive-services-REST-api-samples (Microsoft Corporation)

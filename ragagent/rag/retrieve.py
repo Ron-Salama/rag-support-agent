@@ -40,7 +40,7 @@ class Hit:
 # ===================================================================================
 def search_bruteforce(query_vec: np.ndarray, chunk_vecs: np.ndarray, chunks: list[dict], k: int = 5,
                       doc_id: str | None = None, doc_type: str | None = None) -> list[Hit]:
-    """What a vector database does, by hand (~10 lines).
+    """Exact (brute-force) cosine search: the reference the Chroma index is checked against.
 
     Inputs: query_vec = the question's vector (length 1); chunk_vecs = matrix, row i is the
     vector of chunks[i]; chunks = dicts with chunk_id, doc_id, doc_type, page, text, source_url.

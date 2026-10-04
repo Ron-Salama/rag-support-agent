@@ -25,16 +25,18 @@ Details, with the dated result file behind every number: [Results in detail](#re
 
 ## How it was built
 
-Built with Claude Code between 2026-09-30 and 2026-10-04. **Claude Code wrote most of the code, the
-tests, the eval scripts and the docs**; both commits on `main` carry a `Co-Authored-By: Claude`
-trailer. My part was the framing, the domain rules, the answer key and the decisions; the evals are
-how the AI's work was checked.
+Built with Claude Code between 2026-09-30 and 2026-10-04. **Claude Code wrote essentially all of the code,
+the tests, the eval scripts and the docs** (my only code change is the one-character fix in item 3
+below); every commit on `main` carries a `Co-Authored-By: Claude` trailer. My part was the framing,
+the domain rules, the blind answer key, reviewing the eval results, and deciding what to publish;
+the evals are how the AI's work was checked. Codes such as C22 or R4 are rows in
+[`DECISIONS.md`](DECISIONS.md).
 
 | Who | What |
 |---|---|
-| **Me (Ron Salama)** | Chose the framing: general financial-document AI over a varied mix of public documents. Set the domain rules R1, R2, R4, R5 and R6 in [`DECISIONS.md`](DECISIONS.md); R4 later proved wrong and was reworded (item 4 below). Hand-labeled all 15 documents (131 fields) blind, before any model output existed. Ran the evals and reviewed the results. Made the one-character `_squash` fix for table cells (Claude found the cause, I made the fix). Decided what to publish. |
+| **Me (Ron Salama)** | Chose the framing: general financial-document AI over a varied mix of public documents. Set the domain rules R1, R2, R4, R5 and R6 in [`DECISIONS.md`](DECISIONS.md); R4 later proved wrong and was reworded (item 4 below). Hand-labeled all 15 documents (131 fields) blind, before any model output existed. Reviewed the baseline eval results (2026-10-02) and the errors they exposed. Made the one-character `_squash` fix for table cells (Claude found the cause, I made the fix). Decided what to publish. |
 | **Claude Code** (first version, 2026-09-30 to 10-02) | The code (extraction, RAG, agent, verifier, API), the offline self-tests, the eval scripts and the LLM-judge prompt, the draft golden questions and the refusal-threshold probe questions, the Dockerfile and CI, the README and `DECISIONS.md`. |
-| **A multi-agent Claude Code workflow** (2026-10-04) | An orchestrator, an implementer, a hiring-manager-style reviewer and a verifier agent: the fixes after the baseline (C22-C25 and the R4 rewording) and their re-run, and the README rewrite. |
+| **A multi-agent Claude Code workflow** (2026-10-04) | An orchestrator, an implementer, a reviewer agent reading as an outside engineer, and a verifier agent: the fixes after the baseline (C22-C25 and the R4 rewording) and their re-run, and the README rewrite. |
 
 The checks on the AI's work: the blind hand labels, the offline self-tests, review passes and CI on
 every push. What they caught is listed under [Where the coding agent got it wrong](#where-the-coding-agent-got-it-wrong).
@@ -129,11 +131,12 @@ and evidence: [`DECISIONS.md`](DECISIONS.md) C22-C26).
    **Fix:** a retry re-asks only the failing fields, and code merges back only those
    (`keep_passed_fields`); a self-test proves that a passed field can't change (C24).
 3. **Flattened tables broke the quote check.** Omega and NHI went to review with the right values.
-   Table cells are joined with "|" (fixed first: Claude found the cause, I made the one-character
-   `_squash` fix), and the column header "Three Months Ended" / "June 30," / "2026" sits on three
+   Table cells are joined with "|", and the quote check compared text that still held those
+   separators (fixed first: adding "|" to the characters `_squash` ignores; Claude found the cause,
+   I made the one-character fix), and the column header "Three Months Ended" / "June 30," / "2026" sits on three
    lines. A first tolerant matcher ("words in order within 300 characters") was too loose: it accepted
    "Total revenues 282,506", the prior-year column. **Caught by:** the eval (right values, wrong
-   status); the too-loose first matcher by the implementing agent's own adversarial self-test.
+   status); the too-loose first matcher was found while testing it, and that case stays as a self-test.
    **Fix:** words must follow each other as in the text, the only jump allowed is to the first word
    of a later line, and a number is one word (C23). **After:** Omega and NHI are `ok` on the first attempt.
 4. **Layout trap: Bill To and Ship To side by side** (`inv_sammy`). The columns flatten to "Taylor
@@ -159,12 +162,12 @@ for the "attributable to common stockholders" line, 7,575) and `appr_hallandale_
 
 ### Where the coding agent got it wrong
 
-Mistakes in the code Claude Code wrote, from [`DECISIONS.md`](DECISIONS.md), and what caught each one.
+Mistakes in the code Claude Code wrote (as opposed to the model, rule and grader errors above), mostly recorded in [`DECISIONS.md`](DECISIONS.md), and what caught each one.
 
 | What went wrong | Caught by | Fix |
 |---|---|---|
 | The evidence check only tested that the quote existed, so a calculated tax "backed" by the real quote "Sales Tax 3%" passed as `ok` (C22) | the extraction eval against the blind hand labels | the value must be printed inside its own quote |
-| The first tolerant quote matcher accepted a number from the next (prior-year) column of a table row (C23) | the implementing agent's own adversarial self-test | jumps only to the first word of a later line, a number is one word; the test case stays |
+| The first tolerant quote matcher accepted a number from the next (prior-year) column of a table row (C23) | found while testing the first matcher | jumps only to the first word of a later line, a number is one word; the test case stays |
 | CI failed only on `FAIL` lines, so a self-test that never ran (a usage text printed instead) would have passed (C18) | a Claude Code review pass, 2026-10-01 | a module also fails when its "N/N passed" line is missing |
 | `download.py` sent the SEC identity (name + email) to every site, not only sec.gov (C19) | the same review pass | sec.gov only, other sites get a generic User-Agent; a self-test case was added |
 | With no API key, `/ask` and `/agent` crashed with an HTTP 500 (`ragagent/llm.py`, `ragagent/api.py`) | the same review pass, running the image's files with no `.env` | a 503 "LLM unavailable" that says the key is missing |
@@ -321,9 +324,9 @@ interface, so the rest of the pipeline would not change.
 | refusal gates + verifier | **Bedrock Guardrails** contextual grounding check, next to our own checks |
 | `outputs/` + review queue | S3 -> **Snowflake** (raw `VARIANT` table -> dbt models with tests, e.g. line items sum to the total) |
 
-Azure has equivalents for the same pieces, also a plan and not built: Azure OpenAI (chat + tool
-calling), Azure AI Search (vector index), Azure AI Document Intelligence (extraction), and AKS for the
-container CI already builds.
+Azure has equivalents for the same pieces (a plan, not built or researched in depth): Azure OpenAI
+(chat + tool calling), Azure AI Search (vector index), Azure AI Document Intelligence (extraction),
+and Azure Container Apps for the container CI already builds.
 
 ## Limitations and next steps
 
